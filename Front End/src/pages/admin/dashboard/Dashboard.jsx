@@ -109,10 +109,10 @@ const AdminDashboard = () => {
       <Sidebar></Sidebar>
       <div className="flex-1 flex flex-col">
         {/* Header Bar */}
-        <div className="text-gray-800 flex items-center justify-between p-4 bg-gradient-to-r from-blue-500 to-cyan-500">
+        <div className="text-gray-800 flex items-center justify-between p-4 bg-white">
           <div className="flex items-center space-x-4">
             <div
-              className={`text-xl font-bold text-white ${
+              className={`text-xl font-bold ${
                 windowWidth < 768 ? "ml-11" : ""
               }`}
             >
@@ -125,10 +125,7 @@ const AdminDashboard = () => {
             </button>
             {windowWidth >= 768 && (
               <div className="flex items-center">
-                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                  <span className="text-blue-500 font-semibold">A</span>
-                </div>
-                <span className="ml-0 mr-7 text-lg text-white">ADMIN</span>
+                <span className="ml-0 mr-7 text-lg">ADMIN</span>
               </div>
             )}
           </div>

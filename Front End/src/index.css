@@ -14,7 +14,13 @@
   .primary-btn {
       @apply inline-block bg-green-700 text-white font-semibold rounded-lg hover:bg-secondary2 duration-200 shadow-[0px_10px_8px_-7px_#15803d] hover:shadow-[0px_10px_8px_-7px_#8cc345] py-2 px-6;
   }
+
+  .secondary-btn {
+    @apply inline-block bg-green-700 text-white font-semibold rounded-lg hover:bg-green-900 duration-200 shadow-[0px_10px_8px_-7px_#15803d] hover:shadow-[0px_10px_8px_-7px_#14532d] py-2 px-6;
+  }
 }
+
+
 
 @layer utilities {
   .drop-shadow {

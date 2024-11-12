@@ -25,7 +25,7 @@ const Sidebar = () => {
       </button>
 
       <div
-        className={`fixed md:static inset-y-0 left-0 w-60 bg-gradient-to-b from-blue-500 to-cyan-500 text-white transition-transform transform ${
+        className={`fixed md:static inset-y-0 left-0 w-60 bg-secondary2 text-white transition-transform transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0 h-full z-40`}
       >
@@ -59,7 +59,7 @@ const Sidebar = () => {
 
         {/* Log Out Button */}
         <div className="mt-auto flex justify-center px-6 py-4">
-          <button className="bg-red-500 text-white w-full py-3 rounded-full text-lg font-normal hover:bg-red-600 transition duration-300">
+          <button className="secondary-btn w-full">
             <FaSignOutAlt className="inline-block mr-2" /> Log Out
           </button>
         </div>
