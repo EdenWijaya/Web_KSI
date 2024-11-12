@@ -27,7 +27,7 @@ export const FadeUp = (delay) => {
 
 const Hero = () => {
   return (
-    <section className='bg-light overflow-hidden relative pb-32'>
+    <section className='bg-light overflow-hidden relative pb-28'>
       <Navbar/>
         <div className="container grid grid-cols-1 md:grid-cols-2 min-h-[650px]">
           {/* Header */}
@@ -66,7 +66,7 @@ const Hero = () => {
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeInOut" }}
-            src={Blob} alt="" className='absolute top-[-64%] w-[800px] md:w-[1500px] z-[1] hidden md:block'/>
+            src={Blob} alt="" className='absolute top-[-50%] w-[800px] md:w-[1500px] z-[1] hidden md:block'/>
           </div>
         </div>
     </section>

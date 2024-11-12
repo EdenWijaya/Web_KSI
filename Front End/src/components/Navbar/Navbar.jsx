@@ -53,9 +53,9 @@ const Navbar = () => {
               </li>
             ))}
 
-            <button className="primary-btn">
-              <a href="./Login">Login</a>
-            </button>
+            <a href="./Login" >
+              <button className="primary-btn">Login</button>
+            </a>
           </ul>
         </div>
 
