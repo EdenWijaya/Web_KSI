@@ -48,9 +48,23 @@ const SlideLeft = (delay) => {
 const Target = () => {
   return (
     <section className='bg-white'>
-        <div className='container pb-14 pt-24'>
-            <h1 className='text-4xl font-bold text-center'>Target SDGs 15</h1>
-            <h2 className='text-2xl font-bold text-center pb-10'>Ekosistem Daratan</h2>
+        <div className='container pb-14 pt-28'>
+            <motion.h1 
+            variants={SlideLeft(0.5)}
+            initial='initial'
+            whileInView={'animate'}
+            className='text-4xl font-bold text-center'>
+                Target SDGs 15
+            </motion.h1>
+            <motion.h2 
+            variants={SlideLeft(0.5)}
+            initial='initial'
+            whileInView={'animate'}
+            className='text-2xl font-bold text-center pb-10'>
+                Ekosistem Daratan
+            </motion.h2>
+
+
 
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8'>
                 {
@@ -59,8 +73,7 @@ const Target = () => {
                         variants={SlideLeft(target.delay)}
                         initial='initial'
                         whileInView={'animate'}
-                        viewport={{ once: true }}
-                        className='rounded-2xl flex flex-col gap-4 item-center justify-center p-10 py-7 hover:scale-110 duration-300 hover:shadow-xl'>
+                        className=' rounded-3xl flex flex-col gap-4 item-center justify-center p-10 py-7 hover:scale-110 duration-300 hover:shadow-xl'>
                             <div className=''>
                                 <img src={target.image} />
                             </div>
