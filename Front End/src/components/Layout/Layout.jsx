@@ -1,4 +1,3 @@
-// layout.jsx
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../Sidebar/Sidebar.jsx';
 import { Outlet } from 'react-router-dom';
@@ -23,12 +22,11 @@ const Layout = () => {
         <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
       </div>
 
-      {/* Overlay for Mobile */}
+      {/* Mobile */}
       {isSidebarOpen && windowWidth < 768 && (
         <div className="fixed inset-0 bg-black opacity-50 z-30" onClick={toggleSidebar}></div>
       )}
 
-      {/* Main Content Area with Responsive Margin */}
       <div className="flex-1 flex flex-col md:ml-60">
         {/* Header Bar */}
         <div className="text-gray-800 flex items-center justify-between p-4 md:px-10 bg-white">
@@ -54,7 +52,6 @@ const Layout = () => {
           </div>
         </div>
 
-        {/* Scrollable Dashboard Content */}
         <div className="flex-1 p-4 md:px-10 bg-gray-100 overflow-y-auto h-screen">
           <Outlet />
         </div>

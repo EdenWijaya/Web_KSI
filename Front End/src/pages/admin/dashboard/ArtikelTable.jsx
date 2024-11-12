@@ -4,61 +4,55 @@ const ArtikelTable = () => {
   const artikelData = [
     {
       id: 1,
-      tanggal: '10-10-2024',
-      judul: 'Lorem lorem',
+      tanggal_artikel: '10-10-2024',
+      judul_artikel: 'Lorem lorem',
       author: 'Eden Wijaya',
-      deskripsi: 'Terjadi pembakaran lahan',
-    },
-    {
-      id: 2,
-      tanggal: '14-10-2024',
-      judul: 'Lorem lorem',
-      author: 'Mustafa',
-      deskripsi: 'Ada orang buang sampah sembarangan',
-    },
-    {
-      id: 3,
-      tanggal: '20-11-2024',
-      judul: 'Lorem lorem',
-      author: 'Ghfari',
-      deskripsi: 'Merusak pohon tanpa alasan',
-    },
-    {
-      id: 4,
-      tanggal: '26-12-2024',
-      judul: 'Lorem lorem',
-      author: 'Anjes  MU',
-      deskripsi: 'Menumpuk sampah di balai desa',
+      isi_artikel: 'Terjadi pembakaran lahan',
+      gambar_artikel: ''
     },
   ];
 
   return (
-    <div className="overflow-x-auto">
-      <table className="min-w-full bg-white table-auto">
-        <thead>
-          <tr className="border-b">
-            <th className="px-4 py-2 text-left">Id Artikel</th>
-            <th className="px-4 py-2 text-left">Tanggal Artikel</th>
-            <th className="px-4 py-2 text-left">Judul Artikel</th>
-            <th className="px-4 py-2 text-left">Author</th>
-            <th className="px-4 py-2 text-left">Deskripsi Singkat Artikel</th>
-          </tr>
-        </thead>
-        <tbody>
-          {artikelData.map((artikel) => (
-            <tr key={artikel.id} className="border-b">
-              <td className="px-4 py-2">{artikel.id}</td>
-              <td className="px-4 py-2">{artikel.tanggal}</td>
-              <td className="px-4 py-2">{artikel.judul}</td>
-              <td className="px-4 py-2">{artikel.author}</td>
-              <td className="px-4 py-2">{artikel.deskripsi}</td>
+    <div className="overflow-x-auto px-4 py-6 bg-gray-100 min-h-screen">
+      <div className="bg-white shadow-lg rounded-lg max-w-full mx-auto">
+        <table className="min-w-full table-auto">
+          <thead>
+            <tr className="bg-green-800 text-white text-left">
+              <th className="px-6 py-4 font-medium text-center min-w-[150px]">Id Artikel</th>
+              <th className="px-6 py-4 font-medium text-center min-w-[150px]">Tanggal Artikel</th>
+              <th className="px-6 py-4 font-medium text-center min-w-[150px]">Judul Artikel</th>
+              <th className="px-6 py-4 font-medium text-center min-w-[150px]">Author</th>
+              <th className="px-6 py-4 font-medium text-center min-w-[200px]">Deskripsi Singkat</th>
+              <th className="px-6 py-4 font-medium text-center min-w-[100px]">Gambar</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {artikelData.map((artikel, index) => (
+              <tr key={artikel.id} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+                <td className="px-4 py-2 border-b text-center">{artikel.id}</td>
+                <td className="px-4 py-2 border-b text-center">{artikel.tanggal_artikel}</td>
+                <td className="px-4 py-2 border-b text-center">{artikel.judul_artikel}</td>
+                <td className="px-4 py-2 border-b text-center">{artikel.author}</td>
+                <td className="px-4 py-2 border-b text-center">{artikel.isi_artikel}</td>
+                <td className="px-4 py-2 border-b text-center">
+                  {artikel.gambar ? (
+                    <img src={artikel.gambar_artikel} alt="Gambar Artikel" className="w-12 h-12 rounded" />
+                  ) : (
+                    <span className="text-gray-500">Tidak ada gambar</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="flex justify-center mt-6">
+        <button className="bg-green-800 hover:bg-green-900 text-white font-semibold py-2 w-full sm:w-2/5 rounded-lg shadow-lg">
+          Kelola Artikel
+        </button>
+      </div>
     </div>
   );
 };
 
 export default ArtikelTable;
-    

@@ -1,20 +1,18 @@
-// sidebar.jsx
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { FaHome, FaNewspaper, FaClipboardList, FaSignOutAlt, FaTimes } from 'react-icons/fa';
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
     <div className={`fixed inset-y-0 left-0 w-60 bg-secondary2 text-white transition-transform transform ${
-      isOpen ? "translate-x-0" : "-translate-x-full"
-    } md:translate-x-0 h-full z-40`}>
+      isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 h-full z-40`}>
       <div className="flex justify-between items-center p-4">
         <div className="text-center">
           <div className="text-2xl font-bold">ADMIN</div>
           <div className="text-lg">EcoBanjar</div>
         </div>
         
-        {/* Tombol Close untuk Mobile */}
+        {/* Tombol Tutup Sidebar */}
         <button className="text-white text-2xl md:hidden" onClick={toggleSidebar}>
           <FaTimes />
         </button>
