@@ -59,10 +59,10 @@ const AdminDashboard = () => {
         label: "Persentase Kuesioner",
         data: [10, 15, 20, 25, 18, 22, 30, 10, 10, 10, 10, 20],
         fill: false,
-        borderColor: "#2196F3",
+        borderColor: "#14532d",
         tension: 0.4,
         pointRadius: 5,
-        pointBackgroundColor: "#1976D2",
+        pointBackgroundColor: "#14532d",
       },
     ],
   };
@@ -116,11 +116,11 @@ const AdminDashboard = () => {
                 windowWidth < 768 ? "ml-11" : ""
               }`}
             >
-              EcoBanjar
+              <span className="text-secondary2">Eco</span>Banjar
             </div>
           </div>
           <div className="flex items-center space-x-4">
-            <button className="bg-white text-blue-500 p-2 rounded-full">
+            <button className="bg-white text-green-800 p-2 rounded-full">
               <FaEnvelope className="w-6 h-6" />
             </button>
             {windowWidth >= 768 && (
@@ -136,32 +136,32 @@ const AdminDashboard = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Statistik Cards */}
             <div className="bg-gradient-to-b from-white to-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center justify-between">
-              <FaFileAlt className="text-4xl text-blue-500 mb-4" />
+              <FaFileAlt className="text-4xl text-green-800 mb-4" />
               <h2 className="text-xl font-normal text-gray-700 text-center">
                 Jumlah Artikel
               </h2>
-              <p className="text-4xl font-bold text-blue-600 mt-4">17</p>
+              <p className="text-4xl font-bold text-green-800 mt-4">17</p>
             </div>
             <div className="bg-gradient-to-b from-white to-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center justify-between">
-              <FaUsers className="text-4xl text-blue-500 mb-4" />
+              <FaUsers className="text-4xl text-green-800 mb-4" />
               <h2 className="text-xl font-normal text-gray-700 text-center">
                 Jumlah Pengunjung
               </h2>
-              <p className="text-4xl font-bold text-blue-600 mt-4">59</p>
+              <p className="text-4xl font-bold text-green-800 mt-4">59</p>
             </div>
             <div className="bg-gradient-to-b from-white to-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center justify-between">
-              <FaClipboardCheck className="text-4xl text-blue-500 mb-4" />
+              <FaClipboardCheck className="text-4xl text-green-800 mb-4" />
               <h2 className="text-xl font-normal text-gray-700 text-center">
                 Jumlah Laporan Masuk
               </h2>
-              <p className="text-4xl font-bold text-blue-600 mt-4">4</p>
+              <p className="text-4xl font-bold text-green-800 mt-4">4</p>
             </div>
             <div className="bg-gradient-to-b from-white to-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center justify-between">
-              <FaChartLine className="text-4xl text-blue-500 mb-4" />
+              <FaChartLine className="text-4xl text-green-800 mb-4" />
               <h2 className="text-xl font-normal text-gray-700 text-center">
                 Jumlah Laporan Tuntas
               </h2>
-              <p className="text-4xl font-bold text-blue-600 mt-4">3</p>
+              <p className="text-4xl font-bold text-green-800 mt-4">3</p>
             </div>
           </div>
 

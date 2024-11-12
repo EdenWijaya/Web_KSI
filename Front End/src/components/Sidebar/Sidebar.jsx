@@ -36,21 +36,21 @@ const Sidebar = () => {
         <nav className="flex flex-col space-y-4 px-6">
           <Link
             to="/Admin-Dashboard"
-            className="sidebar-link flex items-center py-3 px-4 text-lg font-normal hover:bg-blue-600 transition duration-300"
+            className="sidebar-link rounded-2xl flex items-center py-3 px-4 text-lg font-normal hover:bg-green-700 transition duration-300"
             onClick={() => setIsOpen(false)}
           >
             <FaHome className="mr-3 text-white" /> Dashboard
           </Link>
           <Link
             // to="/artikel"
-            className="sidebar-link flex items-center py-3 px-4 text-lg font-normal hover:bg-blue-600 transition duration-300"
+            className="sidebar-link rounded-2xl flex items-center py-3 px-4 text-lg font-normal hover:bg-green-700 transition duration-300"
             onClick={() => setIsOpen(false)}
           >
             <FaNewspaper className="mr-3 text-white" /> Artikel
           </Link>
           <Link
             // to="/laporan"
-            className="sidebar-link flex items-center py-3 px-4 text-lg font-normal hover:bg-blue-600 transition duration-300"
+            className="sidebar-link rounded-2xl flex items-center py-3 px-4 text-lg font-normal hover:bg-green-700 transition duration-300"
             onClick={() => setIsOpen(false)}
           >
             <FaClipboardList className="mr-3 text-white" /> Laporan
