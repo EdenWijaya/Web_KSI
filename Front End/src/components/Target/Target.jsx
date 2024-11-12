@@ -1,0 +1,78 @@
+import React from 'react'
+import { motion } from "framer-motion"
+
+const TargetData = [
+    {
+        id : 1,
+        title : 'Pelestarian Lingkungan',
+        content : 'memastikan konservasi, pemulihan dan pemanfaatan berkelanjutan ekosistem air tawar darat dan pedalaman serta layanannya, khususnya hutan, lahan basah, pegunungan dan lahan kering',
+        image: 'src/assets/11.png',
+        delay: 0.2,
+    },
+
+    {
+        id : 2,
+        title : 'Akhiri Deforestasi',
+        content : 'menghentikan penggundulan hutan, memulihkan hutan yang terdegradasi, dan secara substansial meningkatkan penghijauan dan reboisasi di seluruh dunia.',
+        image: 'src/assets/11.png',
+        delay: 0.4,
+    },
+
+    {
+        id : 3,
+        title : 'Integrasi dengan kebijakan',
+        content : 'Mengintegrasikan nilai-nilai ekosistem dan keanekaragaman hayati ke dalam perencanaan nasional dan lokal.',
+        image: 'src/assets/11.png',
+        delay: 0.6,
+    },
+]
+
+const SlideLeft = (delay) => {
+    return {
+        initial: {
+            opacity: 0,
+            x: 50,
+        },
+        animate: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 0.3,
+                delay: delay,
+                ease: 'easeInOut',
+            },
+        },
+    }
+}
+
+const Target = () => {
+  return (
+    <section className='bg-white'>
+        <div className='container pb-14 pt-24'>
+            <h1 className='text-4xl font-bold text-center'>Target SDGs 15</h1>
+            <h2 className='text-2xl font-bold text-center pb-10'>Ekosistem Daratan</h2>
+
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8'>
+                {
+                    TargetData.map((target) => (
+                        <motion.div 
+                        variants={SlideLeft(target.delay)}
+                        initial='initial'
+                        whileInView={'animate'}
+                        viewport={{ once: true }}
+                        className='rounded-2xl flex flex-col gap-4 item-center justify-center p-10 py-7 hover:scale-110 duration-300 hover:shadow-xl'>
+                            <div className=''>
+                                <img src={target.image} />
+                            </div>
+                            <h1 className='text-2xl font-semibold text-center px-3'>{target.title}</h1>
+                            <p className='text-sm text-center px-3'>{target.content}</p>
+                        </motion.div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+  )
+}
+
+export default Target
