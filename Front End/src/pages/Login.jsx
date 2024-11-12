@@ -51,9 +51,6 @@ const Login = () => {
             <p className="text-lg text-white mt-4">
               Sistem Informasi Lingkungan Desa Banjar Agung
             </p>
-            <p className="absolute bottom-4 left-4 text-white text-sm">
-              Anjes-V1
-            </p>
           </div>
         </div>
 
