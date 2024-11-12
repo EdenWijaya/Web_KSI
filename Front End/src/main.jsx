@@ -9,6 +9,9 @@ import Login from "./pages/Login.jsx";
 
 import "./index.css";
 import AdminDashboard from "./pages/admin/dashboard/Dashboard.jsx";
+import LaporanTable from "./pages/admin/dashboard/LaporanTable.jsx";
+import ArtikelTable from "./pages/admin/dashboard/ArtikelTable.jsx";
+import Layout from "./components/Layout/Layout.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,8 +31,22 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: "/admin-dashboard",
-    element: <AdminDashboard />,
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "admin-dashboard",
+        element: <AdminDashboard />,
+      },
+      {
+        path: "ArtikelTable",
+        element: <ArtikelTable />,
+      },
+      {
+        path: "laporanTable",
+        element: <LaporanTable />,
+      },
+    ],
   },
 ]);
 
