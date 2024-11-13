@@ -12,6 +12,7 @@ import AdminDashboard from "./pages/admin/dashboard/Dashboard.jsx";
 import LaporanTable from "./pages/admin/dashboard/LaporanTable.jsx";
 import ArtikelTable from "./pages/admin/dashboard/ArtikelTable.jsx";
 import Layout from "./components/Layout/Layout.jsx";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,19 +33,35 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <Layout />,
+    element: (
+      <ProtectedRoute>
+        <Layout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: "admin-dashboard",
-        element: <AdminDashboard />,
+        element: (
+          <ProtectedRoute>
+            <AdminDashboard />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "ArtikelTable",
-        element: <ArtikelTable />,
+        element: (
+          <ProtectedRoute>
+            <ArtikelTable />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "laporanTable",
-        element: <LaporanTable />,
+        element: (
+          <ProtectedRoute>
+            <LaporanTable />
+          </ProtectedRoute>
+        ),
       },
     ],
   },

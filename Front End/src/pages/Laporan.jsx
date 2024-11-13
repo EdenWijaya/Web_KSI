@@ -1,16 +1,18 @@
 import React, { Fragment } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import FormLaporan from "../components/Form/FormLaporan";
+import Footer from "../components/Footer/Footer";
 
 const Laporan = () => {
   return (
     <Fragment>
       <Navbar />
-      <div className="bg-light ">
+      <div className="bg-light h-screen">
         <div className="text-black h-48 flex flex-col justify-center items-center">
           <h1 className="text-3xl font-bold">Layanan Pengaduan</h1>
           <p className="text-lg mt-2 text-center max-w-3xl">
-            Silahkan laporkan segala permasalahan lingkungan yang Anda temukan di Desa Banjar Agung.
+            Silahkan laporkan segala permasalahan lingkungan yang Anda temukan
+            di Desa Banjar Agung.
           </p>
         </div>
         <div className="flex justify-center ">
@@ -22,6 +24,7 @@ const Laporan = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </Fragment>
   );
 };

@@ -1,9 +1,15 @@
 import { InputLabel, TextAreaLabel } from "./InputLabel";
 import React from "react";
+import { useState } from "react";
 
 import { submitLaporan } from "../../services/Laporan/laporan.service";
 
 const FormLaporan = () => {
+  const [file, setFile] = useState();
+  function handleChange(e) {
+    console.log(e.target.files);
+    setFile(URL.createObjectURL(e.target.files[0]));
+  }
   return (
     <div className="w-full max-w rounded-lg p-7">
       <form onSubmit={submitLaporan} className="space-y-6">
@@ -41,7 +47,9 @@ const FormLaporan = () => {
           accept="image/*"
           variant="py-2 px-4"
           className="border border-gray-300 rounded-lg py-2 px-4 mt-4 focus:outline-none file:cursor-pointer file:border-0 file:bg-green-100 file:text-green-700"
+          onChange={handleChange}
         />
+        <img src={file} alt="preview" />
 
         <div className="flex justify-center">
           <button type="submit" className="primary-btn w-full">

@@ -4,10 +4,6 @@ import { Link } from "react-router-dom";
 import LoginForm from "../components/Form/FormLogin";
 
 const Login = () => {
-  const goToHome = () => {
-    window.location.href = "/";
-  };
-
   return (
     <div
       className="h-screen flex items-center justify-center bg-cover bg-center"

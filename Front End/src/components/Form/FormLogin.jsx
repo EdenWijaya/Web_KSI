@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 //Sementara
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { AdminAuthentication } from "../../services/adminAuth/adminAuth.service";
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -9,7 +10,7 @@ const LoginForm = () => {
   };
 
   return (
-    <form className="space-y-4">
+    <form className="space-y-4" onSubmit={AdminAuthentication}>
       {/* Username Input */}
       <div>
         <label className="block text-sm font-normal text-white-800 mb-1">
@@ -56,12 +57,9 @@ const LoginForm = () => {
           Login
         </button> */}
 
-        <Link
-          to="/admin-dashboard"
-          className="primary-btn w-full text-center"
-        >
+        <button className="primary-btn w-full text-center" type="submit">
           Login
-        </Link>
+        </button>
       </div>
     </form>
   );

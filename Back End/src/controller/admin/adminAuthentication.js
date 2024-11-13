@@ -9,9 +9,9 @@ const adminAuth = async (req, res) => {
   const { body } = req;
 
   if (!body.username || !body.password) {
-    const error = new Error("Username dan password harus diisi");
-    error.errorStatus = 422;
-    throw error;
+    return res.status(403).json({
+      message: "Username atau password tidak boleh kosong",
+    });
   }
 
   const data = await getAdminAccount();
@@ -48,6 +48,7 @@ const adminAuth = async (req, res) => {
       });
     }
   } catch (error) {
+    console.error(error);
     res.status(500).json({
       message: "kegagalan dari server saat proses login",
     });

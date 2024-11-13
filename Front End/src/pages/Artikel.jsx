@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar/Navbar";
 import React from "react";
+import Footer from "../components/Footer/Footer";
 import { Link } from "react-router-dom";
 
 const articles = [
@@ -59,67 +60,78 @@ const articles = [
 
 const Artikel = () => {
   return (
-    <div>
-      {/* Navbar */}
-      <Navbar variant="bg-green-800" variant2="mt-0 py-1" />
+    <>
+      <div>
+        {/* Navbar */}
+        <Navbar variant="bg-green-800" variant2="mt-0 py-1" />
 
-      {/* Daftar Artikel */}
-      <div className="max-w-7xl mx-auto p-4">
-        {/* Bagian atas: Gambar besar dan Deskripsi Berdampingan */}
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          {/* Gambar Besar */}
-          <a href={articles[0].link} target="_blank" rel="noopener noreferrer">
-            <img
-              src={articles[0].image}
-              alt="Main Article"
-              className="w-full h-auto object-cover rounded-lg shadow-lg"
-            />
-          </a>
-
-          {/* Deskripsi Artikel Besar */}
-          <div className="flex flex-col justify-center">
-            <h2 className="text-3xl font-semibold mb-4">{articles[1].title}</h2>
-            <p className="text-gray-600 mb-4">{articles[1].description}</p>
+        {/* Daftar Artikel */}
+        <div className="max-w-7xl mx-auto p-4">
+          {/* Bagian atas: Gambar besar dan Deskripsi Berdampingan */}
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            {/* Gambar Besar */}
             <a
-              href={articles[1].link}
+              href={articles[0].link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-700 font-semibold"
-            >
-              Read More
-            </a>
-          </div>
-        </div>
-
-        {/* Bagian bawah: 6 box kecil */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {articles.slice(2).map((article, index) => (
-            <a
-              href={article.link}
-              key={index}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col"
             >
               <img
-                src={article.image}
-                alt={article.title}
-                className="w-full h-48 object-cover"
+                src={articles[0].image}
+                alt="Main Article"
+                className="w-full h-auto object-cover rounded-lg shadow-lg"
               />
-              <div className="p-6 flex-grow flex flex-col">
-                <h2 className="text-xl font-semibold mb-2">{article.title}</h2>
-                <p className="text-gray-600 mb-4 flex-grow">
-                  {article.description}
-                </p>
-                <span className="text-blue-500 hover:text-blue-700 font-semibold mt-auto">
-                  Read More
-                </span>
-              </div>
             </a>
-          ))}
+
+            {/* Deskripsi Artikel Besar */}
+            <div className="flex flex-col justify-center">
+              <h2 className="text-3xl font-semibold mb-4">
+                {articles[1].title}
+              </h2>
+              <p className="text-gray-600 mb-4">{articles[1].description}</p>
+              <a
+                href={articles[1].link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:text-blue-700 font-semibold"
+              >
+                Read More
+              </a>
+            </div>
+          </div>
+
+          {/* Bagian bawah: 6 box kecil */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {articles.slice(2).map((article, index) => (
+              <a
+                href={article.link}
+                key={index}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col"
+              >
+                <img
+                  src={article.image}
+                  alt={article.title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-6 flex-grow flex flex-col">
+                  <h2 className="text-xl font-semibold mb-2">
+                    {article.title}
+                  </h2>
+                  <p className="text-gray-600 mb-4 flex-grow">
+                    {article.description}
+                  </p>
+                  <span className="text-blue-500 hover:text-blue-700 font-semibold mt-auto">
+                    Read More
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+      <Footer></Footer>
+    </>
   );
 };
 
