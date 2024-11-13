@@ -32,6 +32,13 @@ const TambahArtikel = () => {
             placeholder="Masukkan nama author"
             variant="py-2 px-4"
           />
+          <InputLabel
+            label="Sumber Artikel : "
+            name="sumber_artikel"
+            type="text"
+            placeholder="Masukkan Sumber Artikel Berupa URL"
+            variant="py-2 px-4"
+          />
           <TextAreaLabel
             label="Isi Artikel :"
             name="isi_artikel"

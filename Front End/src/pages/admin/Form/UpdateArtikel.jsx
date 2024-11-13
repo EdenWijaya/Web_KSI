@@ -14,6 +14,7 @@ const UpdateArtikel = () => {
   const [judulArtikel, setJudulArtikel] = useState("");
   const [author, setAuthor] = useState("");
   const [isiArtikel, setIsiArtikel] = useState("");
+  const [sumberArtikel, setSumberArtikel] = useState("");
   const [previousImageUrl, setPreviousImageUrl] = useState("");
 
   useEffect(() => {
@@ -25,6 +26,7 @@ const UpdateArtikel = () => {
         setJudulArtikel(artikel.judul_artikel);
         setAuthor(artikel.author);
         setIsiArtikel(artikel.isi_artikel);
+        setSumberArtikel(artikel.sumber_artikel);
         setPreviousImageUrl(artikel.gambar_artikel);
       }
     });
@@ -61,6 +63,15 @@ const UpdateArtikel = () => {
             onChange={(e) => setAuthor(e.target.value)}
           />
 
+          <InputLabel
+            label="Sumber Artikel : "
+            name="sumber_artikel"
+            type="text"
+            placeholder="Masukkan Sumber Artikel Berupa URL"
+            variant="py-2 px-4"
+            value={sumberArtikel}
+            onChange={(e) => setSumberArtikel(e.target.value)}
+          />
           <TextAreaLabel
             label="Isi Artikel :"
             name="isi_artikel"

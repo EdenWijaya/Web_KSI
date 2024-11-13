@@ -2,6 +2,7 @@ import React from "react";
 import { IoMdMenu } from "react-icons/io";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { isTokenValid } from "../../services/adminAuth/tokenValidation.service";
 
 const NavbarMenu = [
   {
@@ -22,14 +23,6 @@ const NavbarMenu = [
     path: "/laporan",
   },
 ];
-
-const checkToken = () => {
-  if (localStorage.getItem("token")) {
-    return true;
-  } else {
-    return false;
-  }
-};
 
 const Navbar = () => {
   return (
@@ -62,13 +55,13 @@ const Navbar = () => {
               </li>
             ))}
 
-            {checkToken() == false && (
+            {!isTokenValid() && (
               <Link to="/Login">
                 <button className="primary-btn">Login</button>
               </Link>
             )}
 
-            {checkToken() == true && (
+            {isTokenValid() && (
               <Link to="/admin-dashboard">
                 <button className="primary-btn">Dashboard</button>
               </Link>

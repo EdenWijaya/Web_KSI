@@ -23,8 +23,6 @@ const Artikel = () => {
     });
   }, []);
 
-  console.log(artikelData);
-
   return (
     <>
       <div>
@@ -33,13 +31,12 @@ const Artikel = () => {
           <div className="max-w-7xl mx-auto p-4">
             {artikelData.length > 0 && (
               <div className="bg-white rounded-lg shadow-lg overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                <a target="_blank" rel="noopener noreferrer">
-                  <img
-                    src={showGambar(artikelData[0].gambar_artikel)}
-                    alt="Main Article"
-                    className="w-full h-auto object-cover rounded-lg shadow-lg"
-                  />
-                </a>
+                <img
+                  src={showGambar(artikelData[0].gambar_artikel)}
+                  alt="Main Article"
+                  className="w-full h-auto object-cover rounded-lg shadow-lg"
+                />
+
                 <motion.div
                   variants={SlideUp(0.2)}
                   initial="initial"
@@ -55,7 +52,7 @@ const Artikel = () => {
 
                   <Link
                     className="text-blue-500 hover:text-blue-700 font-semibold"
-                    to="isi-artikel"
+                    to={`isi-artikel/${artikelData[0].id_artikel}`}
                   >
                     Read More
                   </Link>
@@ -66,10 +63,8 @@ const Artikel = () => {
             {/* Grid of small articles */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {artikelData.slice(1).map((artikel, index) => (
-                <motion.a
+                <motion.div
                   key={artikel.id_artikel}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   variants={SlideUp(0.2 + index * 0.2)}
                   initial="initial"
                   animate="animate"
@@ -90,12 +85,12 @@ const Artikel = () => {
 
                     <Link
                       className="text-blue-500 hover:text-blue-700 font-semibold mt-auto"
-                      to="isi-artikel"
+                      to={`isi-artikel/${artikel.id_artikel}`}
                     >
                       Read More
                     </Link>
                   </div>
-                </motion.a>
+                </motion.div>
               ))}
             </div>
           </div>

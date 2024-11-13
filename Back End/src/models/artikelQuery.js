@@ -22,13 +22,15 @@ export const getArtikelById = (id) => {
 };
 
 export const addArtikel = (body, gambar_artikel) => {
-  const query = `INSERT INTO artikel_lingkungan (tanggal_artikel, judul_artikel,author, gambar_artikel, isi_artikel) VALUES (?, ?, ?, ?, ?)`;
+  const sumber_artikel = body.sumber_artikel || "Unknown";
+  const query = `INSERT INTO artikel_lingkungan (tanggal_artikel, judul_artikel,author, gambar_artikel, isi_artikel,sumber_artikel) VALUES (?, ?, ?, ?, ?,?)`;
   const values = [
     body.tanggal_artikel,
     body.judul_artikel,
     body.author,
     gambar_artikel,
     body.isi_artikel,
+    sumber_artikel,
   ];
 
   try {
@@ -47,8 +49,8 @@ export const updateArtikel = (body, id, gambar) => {
   const image = gambar || null;
 
   const query =
-    "UPDATE artikel_lingkungan SET judul_artikel = ?, gambar_artikel = ?, isi_artikel = ? WHERE id_artikel = ?";
-  const params = [title, image, content, id];
+    "UPDATE artikel_lingkungan SET author = ?, judul_artikel = ?, gambar_artikel = ?, isi_artikel = ? WHERE id_artikel = ?";
+  const params = [authorName, title, image, content, id];
 
   try {
     return dbPool.execute(query, params);

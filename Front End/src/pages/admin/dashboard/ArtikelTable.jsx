@@ -38,6 +38,9 @@ const ArtikelTable = () => {
               <th className="px-4 py-4 font-medium text-center min-w-[150px]">
                 Author
               </th>
+              <th className="px-4 py-4 font-medium text-center min-w-[150px]">
+                Sumber Artikel
+              </th>
               <th className="px-4 py-4 font-medium text-center min-w-[200px]">
                 Deskripsi Singkat
               </th>
@@ -66,6 +69,9 @@ const ArtikelTable = () => {
                 </td>
                 <td className="px-4 py-2 border-b text-center">
                   {artikel.author}
+                </td>
+                <td className="px-4 py-2 border-b text-center">
+                  {artikel.sumber_artikel}
                 </td>
                 <td className="px-4 py-2 border-b text-center">
                   {artikel.isi_artikel.slice(0, 200)}

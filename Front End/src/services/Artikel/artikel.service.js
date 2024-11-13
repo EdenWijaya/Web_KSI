@@ -15,6 +15,17 @@ export const getArtikel = async (callback) => {
   }
 };
 
+export const getArtikelById = async (id, setArtikelData) => {
+  try {
+    const res = await axios.get(`${serverUrl}artikel-lingkungan/${id}`);
+    if (res.status === 200) {
+      setArtikelData(res.data);
+    }
+  } catch (error) {
+    alert(`${error.response.data.message}`);
+  }
+};
+
 export const createArtikel = async (event) => {
   const date = new Date();
   const currentDate = date.toLocaleDateString("id-ID");
@@ -34,6 +45,7 @@ export const createArtikel = async (event) => {
   formData.append("author", event.target.author.value);
   formData.append("gambar_artikel", event.target.gambar_artikel.files[0]);
   formData.append("isi_artikel", event.target.isi_artikel.value);
+  formData.append("sumber_artikel", event.target.sumber_artikel.value);
 
   try {
     const res = await axios.post(`${serverUrl}artikel-lingkungan`, formData, {
@@ -90,6 +102,7 @@ export const updateArtikel = async (event, id) => {
   formData.append("author", event.target.author.value);
   formData.append("gambar_artikel", event.target.gambar_artikel.files[0]);
   formData.append("isi_artikel", event.target.isi_artikel.value);
+  formData.append("sumber_artikel", event.target.sumber_artikel.value);
 
   try {
     const res = await axios.put(
