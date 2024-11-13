@@ -6,6 +6,7 @@ import Home from "./pages/Home.jsx";
 import Artikel from "./pages/Artikel.jsx";
 import Laporan from "./pages/Laporan.jsx";
 import Login from "./pages/Login.jsx";
+import IsiArtikel from "./pages/Artikelisi.jsx";
 
 import "./index.css";
 import AdminDashboard from "./pages/admin/dashboard/Dashboard.jsx";
@@ -78,6 +79,9 @@ const router = createBrowserRouter([
         element: <UpdateArtikel />,
       },
     ],
+  },
+  {
+    path: "isi-artikel/:id",
   },
 ]);
 

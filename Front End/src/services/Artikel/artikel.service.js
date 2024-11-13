@@ -4,7 +4,11 @@ const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 export const getArtikel = async (callback) => {
   try {
-    const res = await axios.get(`${serverUrl}artikel-lingkungan`);
+    const res = await axios.get(`${serverUrl}artikel-lingkungan`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
     callback(res.data);
   } catch (error) {
     console.log(`${error.response.data.message}`);
@@ -34,6 +38,7 @@ export const createArtikel = async (event) => {
   try {
     const res = await axios.post(`${serverUrl}artikel-lingkungan`, formData, {
       headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
         "Content-Type": "multipart/form-data",
       },
     });
@@ -55,7 +60,11 @@ export const deleteArtikel = async (id) => {
   }
 
   try {
-    const res = await axios.delete(`${serverUrl}artikel-lingkungan/${id}`);
+    const res = await axios.delete(`${serverUrl}artikel-lingkungan/${id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
     if (res.status === 200) {
       alert("Artikel Berhasil Dihapus");
       location.reload();
@@ -88,6 +97,7 @@ export const updateArtikel = async (event, id) => {
       formData,
       {
         headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
           "Content-Type": "multipart/form-data",
         },
       }

@@ -18,7 +18,7 @@ const __dirname = path.dirname(__filename);
 
 const imagesPath = path.resolve(__dirname, "../../client_images/artikel");
 
-artikelRouter.get("/", getArtikelForm);
+artikelRouter.get("/", accesValidation, getArtikelForm);
 artikelRouter.get("/:id", getArtikelFormById);
 artikelRouter.post("/", accesValidation, createArtikelForm);
 artikelRouter.put("/:id", accesValidation, updateArtikelForm);

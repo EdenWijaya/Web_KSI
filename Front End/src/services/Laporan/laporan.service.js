@@ -4,7 +4,11 @@ const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 export const getLaporan = async (callback) => {
   try {
-    const res = await axios.get(`${serverUrl}laporan-lingkungan`);
+    const res = await axios.get(`${serverUrl}laporan-lingkungan`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
     callback(res.data);
   } catch (error) {
     console.log(`${error.response.data.message}`);
@@ -35,6 +39,7 @@ export const submitLaporan = async (event) => {
   try {
     const res = await axios.post(`${serverUrl}laporan-lingkungan`, formData, {
       headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
         "Content-Type": "multipart/form-data",
       },
     });
@@ -71,6 +76,7 @@ export const updateStatus = async (id, status, setLaporanStatus) => {
       statusReq,
       {
         headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
           "Content-Type": "application/json",
         },
       }
