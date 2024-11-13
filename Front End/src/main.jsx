@@ -34,33 +34,37 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <ProtectedRoute>
-        <Layout />
-      </ProtectedRoute>
+      // <ProtectedRoute>
+      //   <Layout />
+      // </ProtectedRoute>
+      <Layout />
     ),
     children: [
       {
         path: "admin-dashboard",
         element: (
-          <ProtectedRoute>
-            <AdminDashboard />
-          </ProtectedRoute>
+          // <ProtectedRoute>
+          //   <AdminDashboard />
+          // </ProtectedRoute>
+          <AdminDashboard />
         ),
       },
       {
         path: "ArtikelTable",
         element: (
-          <ProtectedRoute>
-            <ArtikelTable />
-          </ProtectedRoute>
+          // <ProtectedRoute>
+          //   <ArtikelTable />
+          // </ProtectedRoute>
+          <ArtikelTable />
         ),
       },
       {
         path: "laporanTable",
         element: (
-          <ProtectedRoute>
-            <LaporanTable />
-          </ProtectedRoute>
+          // <ProtectedRoute>
+          //   <LaporanTable />
+          // </ProtectedRoute>
+          <LaporanTable />
         ),
       },
     ],
