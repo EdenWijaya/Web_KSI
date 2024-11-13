@@ -1,11 +1,13 @@
 import { React, useEffect, useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import { MdPageview } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import {
   deleteArtikel,
   getArtikel,
   showGambar,
 } from "../../../services/Artikel/artikel.service";
+import { Link } from "react-router-dom";
 
 const ArtikelTable = () => {
   const navigate = useNavigate();
@@ -48,6 +50,9 @@ const ArtikelTable = () => {
                 Gambar
               </th>
               <th className="px-4 py-4 font-medium text-center min-w-[100px]">
+                Lihat Artikel
+              </th>
+              <th className="px-4 py-4 font-medium text-center min-w-[100px]">
                 Aksi
               </th>
             </tr>
@@ -88,6 +93,11 @@ const ArtikelTable = () => {
                   )}
                 </td>
                 {/* Kolom Aksi */}
+                <td className="px-4 py-2 border-b text-center space-x-2">
+                  <Link to={`artikel/isi-artikel/${artikel.id_artikel}`}>
+                    Halaman Artikel
+                  </Link>
+                </td>
                 <td className="px-4 py-2 border-b text-center space-x-2">
                   <button
                     className="text-blue-700 hover:text-blue-900"
