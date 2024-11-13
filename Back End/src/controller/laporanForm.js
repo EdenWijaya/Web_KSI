@@ -2,6 +2,7 @@ import {
   getLaporan,
   addLaporan,
   deleteLaporan,
+  updateStatusLaporan,
 } from "../models/laporanQuery.js";
 
 export const getLaporanForm = async (req, res) => {
@@ -32,16 +33,17 @@ export const createLaporanForm = async (req, res, next) => {
     !body.nama ||
     !body.no_telepon ||
     !body.lokasi_laporan ||
-    !body.deskripsi_laporan
+    !body.deskripsi_laporan ||
+    !body.status
   ) {
-    const error = new Error("Semua field harus diisi");
-    error.errorStatus = 422;
-    throw error;
+    return res.status(422).json({
+      message: "Semua field harus diisi",
+    });
   }
   if (!req.files.gambar_laporan || !req.files) {
-    const error = new Error(" gambar harus diupload");
-    error.errorStatus = 422;
-    throw error;
+    return res.status(422).json({
+      message: "Gambar harus diupload",
+    });
   }
 
   const gambar_laporan = req.files.gambar_laporan[0].path;
@@ -60,13 +62,34 @@ export const createLaporanForm = async (req, res, next) => {
   }
 };
 
+export const updateStatus = async (req, res) => {
+  const { id } = req.params;
+  const { status } = req.body;
+  if (!id) {
+    return res.status(422).json({
+      message: "ID harus diisi",
+    });
+  }
+
+  try {
+    await updateStatusLaporan(id, status);
+    res.status(200).json({
+      message: "Status laporan berhasil diupdate",
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Status laporan gagal diupdate",
+    });
+  }
+};
+
 export const deleteLaporanForm = (req, res) => {
   const { id } = req.params;
 
   if (!id) {
-    const error = new Error("ID harus diisi");
-    error.errorStatus = 422;
-    throw error;
+    return res.status(422).json({
+      message: "ID harus diisi",
+    });
   }
 
   try {

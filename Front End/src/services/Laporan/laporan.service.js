@@ -2,6 +2,14 @@ import axios from "axios";
 
 const serverUrl = import.meta.env.VITE_SERVER_URL;
 
+export const getLaporan = async (callback) => {
+  try {
+    const res = await axios.get(`${serverUrl}laporan-lingkungan`);
+    callback(res.data);
+  } catch (error) {
+    console.log(`${error.response.data.message}`);
+  }
+};
 export const submitLaporan = async (event) => {
   const date = new Date();
   const currentDate = date.toLocaleDateString("id-ID");
@@ -22,6 +30,7 @@ export const submitLaporan = async (event) => {
   formData.append("lokasi_laporan", event.target.lokasi.value);
   formData.append("deskripsi_laporan", event.target.deskripsi.value);
   formData.append("gambar_laporan", event.target.gambar_laporan.files[0]);
+  formData.append("status", "Aktif");
 
   try {
     const res = await axios.post(`${serverUrl}laporan-lingkungan`, formData, {
@@ -37,6 +46,56 @@ export const submitLaporan = async (event) => {
       alert("Laporan Gagal Ditambahkan");
     }
   } catch (err) {
-    alert("Laporan Gagal Ditambahkan");
+    alert(`${err.response.data.message}`);
   }
+};
+
+export const updateStatus = async (id, status, setLaporanStatus) => {
+  const isConfirmed = confirm(
+    "Apakah anda yakin untuk merubah status laporan?"
+  );
+
+  if (!isConfirmed) {
+    return;
+  }
+
+  const statusLaporan = status === "Aktif" ? "Selesai" : "Aktif";
+
+  const statusReq = {
+    status: statusLaporan,
+  };
+
+  try {
+    const res = await axios.put(
+      `${serverUrl}laporan-lingkungan/${id}`,
+      statusReq,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (res.status === 200) {
+      alert("Status Laporan Berhasil Diubah");
+      location.reload();
+    }
+  } catch (error) {
+    console.log(`${error.response.data.message}`);
+  }
+};
+
+export const showGambarLaporan = (path) => {
+  if (!path) {
+    console.log("Tidak Ada Gambar");
+    return "";
+  }
+
+  const standardizedPath = path.replace(/\\/g, "/");
+  const pathGambar = standardizedPath.split("/");
+
+  const gambarUrl = `${serverUrl}laporan-lingkungan/gambar/laporan/${
+    pathGambar[pathGambar.length - 1]
+  }`;
+  return gambarUrl;
 };

@@ -10,7 +10,7 @@ export const getLaporan = () => {
 };
 
 export const addLaporan = (body, gambar_laporan) => {
-  const query = `INSERT INTO laporan_lingkungan (tanggal_laporan, nama, no_telepon, lokasi_laporan, deskripsi_laporan, gambar_laporan) VALUES (?, ?, ?, ?, ?, ?)`;
+  const query = `INSERT INTO laporan_lingkungan (tanggal_laporan, nama, no_telepon, lokasi_laporan, deskripsi_laporan, gambar_laporan,status) VALUES (?, ?, ?, ?, ?, ?,?)`;
   const values = [
     body.tanggal_laporan,
     body.nama,
@@ -18,6 +18,7 @@ export const addLaporan = (body, gambar_laporan) => {
     body.lokasi_laporan,
     body.deskripsi_laporan,
     gambar_laporan,
+    body.status,
   ];
 
   try {
@@ -45,5 +46,16 @@ export const createAdmin = (username, password) => {
     return dbPool.execute(query, values);
   } catch (error) {
     throw error;
+  }
+};
+
+export const updateStatusLaporan = (id, status) => {
+  const query = "UPDATE laporan_lingkungan SET status = ? WHERE id_laporan = ?";
+  const values = [status, id];
+
+  try {
+    return dbPool.execute(query, values);
+  } catch (err) {
+    throw err;
   }
 };

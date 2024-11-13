@@ -38,12 +38,20 @@ export const addArtikel = (body, gambar_artikel) => {
   }
 };
 
-export const updateArtikel = (id, body) => {
-  const query = "UPDATE artikel_lingkungan SET ? WHERE id_artikel = ?";
-  const values = [body, id];
+export const updateArtikel = (body, id, gambar) => {
+  const { judul_artikel, author, isi_artikel } = body;
+
+  const title = judul_artikel || null;
+  const authorName = author || null;
+  const content = isi_artikel || null;
+  const image = gambar || null;
+
+  const query =
+    "UPDATE artikel_lingkungan SET judul_artikel = ?, gambar_artikel = ?, isi_artikel = ? WHERE id_artikel = ?";
+  const params = [title, image, content, id];
 
   try {
-    return dbPool.execute(query, values);
+    return dbPool.execute(query, params);
   } catch (error) {
     throw error;
   }

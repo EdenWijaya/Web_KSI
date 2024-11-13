@@ -64,9 +64,9 @@ export const createArtikelForm = async (req, res, next) => {
     !body.author ||
     !body.isi_artikel
   ) {
-    const error = new Error("Semua field harus diisi");
-    error.errorStatus = 422;
-    throw error;
+    return res.status(422).json({
+      message: `Semua field harus diisi : ${body.tanggal_artikel}, ${body.judul_artikel}, ${body.author}, ${body.isi_artikel}`,
+    });
   }
   try {
     await addArtikel(body, gambar_artikel);
@@ -84,13 +84,15 @@ export const createArtikelForm = async (req, res, next) => {
 export const updateArtikelForm = async (req, res) => {
   const { id } = req.params;
   const { body } = req;
+  const gambar_artikel = req.files.gambar_artikel[0].path;
 
   try {
-    await updateArtikel(body, id);
+    await updateArtikel(body, id, gambar_artikel);
     res.status(200).json({
       message: "Artikel berhasil diupdate",
     });
   } catch (error) {
+    console.log(error);
     res.status(500).json({
       message: "Artikel gagal diupdate",
     });
@@ -101,9 +103,9 @@ export const deleteArtikelForm = async (req, res) => {
   const { id } = req.params;
 
   if (!id) {
-    const error = new Error("ID harus diisi");
-    error.errorStatus = 422;
-    throw error;
+    return res.status(422).json({
+      message: "ID harus diisi",
+    });
   }
 
   try {

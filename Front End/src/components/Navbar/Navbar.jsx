@@ -22,6 +22,15 @@ const NavbarMenu = [
     path: "/laporan",
   },
 ];
+
+const checkToken = () => {
+  if (localStorage.getItem("token")) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 const Navbar = () => {
   return (
     <nav className="relative z-20">
@@ -53,9 +62,17 @@ const Navbar = () => {
               </li>
             ))}
 
-            <Link to="/Login">
-              <button className="primary-btn">Login</button>
-            </Link>
+            {checkToken() == false && (
+              <Link to="/Login">
+                <button className="primary-btn">Login</button>
+              </Link>
+            )}
+
+            {checkToken() == true && (
+              <Link to="/admin-dashboard">
+                <button className="primary-btn">Dashboard</button>
+              </Link>
+            )}
           </ul>
         </div>
 

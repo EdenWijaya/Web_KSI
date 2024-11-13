@@ -41,14 +41,14 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           <FaHome className="mr-3 text-white" /> Dashboard
         </Link>
         <Link
-          to="ArtikelTable"
+          to="artikel-table"
           className="sidebar-link rounded-2xl flex items-center py-3 px-4 text-lg font-normal hover:bg-green-700 transition duration-300"
           onClick={toggleSidebar}
         >
           <FaNewspaper className="mr-3 text-white" /> Artikel
         </Link>
         <Link
-          to="LaporanTable"
+          to="laporan-table"
           className="sidebar-link rounded-2xl flex items-center py-3 px-4 text-lg font-normal hover:bg-green-700 transition duration-300"
           onClick={toggleSidebar}
         >
