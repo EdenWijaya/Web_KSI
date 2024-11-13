@@ -11,6 +11,7 @@ import "./index.css";
 import AdminDashboard from "./pages/admin/dashboard/Dashboard.jsx";
 import LaporanTable from "./pages/admin/dashboard/LaporanTable.jsx";
 import ArtikelTable from "./pages/admin/dashboard/ArtikelTable.jsx";
+import TambahArtikel from "./pages/admin/Form/TambahArtikel.jsx";
 import Layout from "./components/Layout/Layout.jsx";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.jsx";
 
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
           // </ProtectedRoute>
           <LaporanTable />
         ),
+      },
+      {
+        path: "tambah-artikel",
+        element: <TambahArtikel />
       },
     ],
   },

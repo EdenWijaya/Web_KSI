@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaChartLine, FaFileAlt, FaUsers, FaClipboardCheck, FaCheck, FaTimes, FaTrash } from 'react-icons/fa';
 
 const LaporanTable = () => {
   const laporanData = [
@@ -55,19 +56,20 @@ const LaporanTable = () => {
   ];
   
   return (
-    <div className="overflow-x-auto bg-gray-100 min-h-screen px-4 py-6">
+    <div style ={{ marginLeft: '-20px' ,marginRight: '-20px'}} className="overflow-x-auto bg-gray-100 min-h-screen py-1 ">
       <div className="bg-white shadow-lg rounded-lg mx-auto max-w-full">
         <table className="w-full table-auto">
           <thead>
             <tr className="bg-green-800 text-white">
-              <th className="px-4 py-4 font-medium text-center">Id Laporan</th>
-              <th className="px-4 py-4 font-medium text-center">Tanggal Laporan</th>
-              <th className="px-4 py-4 font-medium text-center">Status</th>
-              <th className="px-4 py-4 font-medium text-center">Nama Pelapor</th>
-              <th className="px-4 py-4 font-medium text-center">Nomor Telepon Pelapor</th>
-              <th className="px-4 py-4 font-medium text-center">Lokasi Laporan</th>
-              <th className="px-4 py-4 font-medium text-center">Deskripsi Laporan</th>
-              <th className="px-4 py-4 font-medium text-center">Gambar</th>
+              <th className="px-1 py-4 font-medium text-center">Id Laporan</th>
+              <th className="px-2 py-4 font-medium text-center">Tanggal Laporan</th>
+              <th className="px-2 py-4 font-medium text-center">Status</th>
+              <th className="px-2 py-4 font-medium text-center">Nama Pelapor</th>
+              <th className="px-2 py-4 font-medium text-center">Nomor Telepon Pelapor</th>
+              <th className="px-2 py-4 font-medium text-center">Lokasi Laporan</th>
+              <th className="px-2 py-4 font-medium text-center">Deskripsi Laporan</th>
+              <th className="px-2 py-4 font-medium text-center">Gambar</th>
+              <th className="px-8 py-4 font-medium text-center">Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -90,6 +92,18 @@ const LaporanTable = () => {
                   ) : (
                     <span className="text-gray-500">Tidak ada gambar</span>
                   )}
+                </td>
+                {/* Kolom Aksi */}
+                <td className="px-4 py-2 border-b text-center space-x-2">
+                  <button className="text-green-700 hover:text-green-900" title="Aktif">
+                    <FaCheck />
+                  </button>
+                  <button className="text-red-700 hover:text-red-900" title="Nonaktif">
+                    <FaTimes />
+                  </button>
+                  <button className="text-gray-700 hover:text-gray-900" title="Hapus">
+                    <FaTrash />
+                  </button>
                 </td>
               </tr>
             ))}
