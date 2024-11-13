@@ -11,7 +11,7 @@ const FormLaporan = () => {
     setFile(URL.createObjectURL(e.target.files[0]));
   }
   return (
-    <div className="w-full max-w rounded-lg p-7">
+    <div className="w-full max-w rounded-lg p-">
       <form onSubmit={submitLaporan} className="space-y-6">
         <InputLabel
           label="Nama Pelapor : "
@@ -49,10 +49,10 @@ const FormLaporan = () => {
           className="border border-gray-300 rounded-lg py-2 px-4 mt-4 focus:outline-none file:cursor-pointer file:border-0 file:bg-green-100 file:text-green-700"
           onChange={handleChange}
         />
-        <img src={file} alt="preview" />
+        {/* <img src={file} alt="preview" /> */}
 
         <div className="flex justify-center">
-          <button type="submit" className="primary-btn w-full">
+          <button type="submit" className="primary-btn w-full mt-10">
             Submit
           </button>
         </div>

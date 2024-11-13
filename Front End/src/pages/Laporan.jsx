@@ -17,7 +17,7 @@ const Laporan = () => {
         </div>
         <div className="flex justify-center ">
           <div className="w-10/12 max-w-3xl p-7 bg-white border rounded-2xl shadow-lg">
-            <h2 className="text-2xl font-semibold text-center mb-6">
+            <h2 className="text-2xl font-semibold text-center mb-">
               Formulir Laporan
             </h2>
             <FormLaporan />

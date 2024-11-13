@@ -37,7 +37,7 @@ const Footer = () => {
             initial="initial"
             whileInView={"animate"}
           >
-            <div className="space-y-4">
+            <div className="space-y-4 sm:col-span-2">
               <h1 className="text-2xl font-bold">
                 <span className="text-secondary2">Eco</span>Banjar
               </h1>
@@ -49,12 +49,12 @@ const Footer = () => {
                     rel="noopener noreferrer"
                   >
                     <li className="flex items-center space-x-2">
-                      <SiGooglemaps className="text-4xl text-secondary2 mr-2" />{" "}
+                      <SiGooglemaps className="text-2xl text-secondary2 mr-2" />{" "}
                       Jati Agung Lampung Selatan
                     </li>
                   </a>
                   <li className="flex items-center space-x-2 pt-4">
-                    <CiMail className="text-3xl text-secondary2 mr-2" />{" "}
+                    <CiMail className="text-2xl text-secondary2 mr-2" />{" "}
                     iniemail@gmail.com
                   </li>
                   <li className="flex items-center space-x-2 pt-5">
