@@ -47,7 +47,7 @@ const Artikel = () => {
                     {artikelData[0].judul_artikel}
                   </h2>
                   <p className="text-gray-600 mb-4">
-                    {artikelData[0].isi_artikel}
+                    {artikelData[0].isi_artikel.slice(0, 200)}
                   </p>
 
                   <Link
