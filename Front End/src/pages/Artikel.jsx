@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Footer from "../components/Footer/Footer";
 import { motion } from "framer-motion";
 import { getArtikel, showGambar } from "../services/Artikel/artikel.service";
+import { Link } from "react-router-dom";
 
 const SlideUp = (delay) => ({
   initial: { opacity: 0, y: 50 },
@@ -51,13 +52,13 @@ const Artikel = () => {
                   <p className="text-gray-600 mb-4">
                     {artikelData[0].isi_artikel}
                   </p>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
+
+                  <Link
                     className="text-blue-500 hover:text-blue-700 font-semibold"
+                    to="isi-artikel"
                   >
                     Read More
-                  </a>
+                  </Link>
                 </motion.div>
               </div>
             )}
@@ -86,9 +87,13 @@ const Artikel = () => {
                     <p className="text-gray-600 mb-4 flex-grow">
                       {artikel.isi_artikel.slice(0, 200)}
                     </p>
-                    <span className="text-blue-500 hover:text-blue-700 font-semibold mt-auto">
+
+                    <Link
+                      className="text-blue-500 hover:text-blue-700 font-semibold mt-auto"
+                      to="isi-artikel"
+                    >
                       Read More
-                    </span>
+                    </Link>
                   </div>
                 </motion.a>
               ))}

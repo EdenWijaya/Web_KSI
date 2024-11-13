@@ -81,7 +81,8 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "isi-artikel/:id",
+    path: "isi-artikel/",
+    element: <IsiArtikel />,
   },
 ]);
 
