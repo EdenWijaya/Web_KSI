@@ -130,7 +130,7 @@ const Footer = () => {
         className="mt-10 py-4 bg-light font-semibold text-center"
         variants={SlideUp(0.4)}
         initial="initial"
-        animate="animate"
+        whileInView={"animate"}
       >
         <p>&copy; Copyright 2024 Desa Banjar Agung</p>
       </motion.div>
