@@ -7,7 +7,7 @@ const Laporan = () => {
   return (
     <Fragment>
       <Navbar />
-      <div className="bg-light h-screen">
+      <div className="bg-light min-h-screen">
         <div className="text-black h-48 flex flex-col justify-center items-center">
           <h1 className="text-3xl font-bold">Layanan Pengaduan</h1>
           <p className="text-lg mt-2 text-center max-w-3xl">
@@ -24,7 +24,7 @@ const Laporan = () => {
           </div>
         </div>
       </div>
-      <Footer></Footer>
+      <Footer />
     </Fragment>
   );
 };
