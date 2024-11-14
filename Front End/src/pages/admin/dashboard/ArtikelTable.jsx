@@ -94,8 +94,11 @@ const ArtikelTable = () => {
                 </td>
                 {/* Kolom Aksi */}
                 <td className="px-4 py-2 border-b text-center space-x-2">
-                  <Link to={`artikel/isi-artikel/${artikel.id_artikel}`}>
-                    Halaman Artikel
+                  <Link
+                    className="hover:text-green-600 hover:underline"
+                    to={`/artikel/isi-artikel/${artikel.id_artikel}`}
+                  >
+                    Menuju Halaman Artikel
                   </Link>
                 </td>
                 <td className="px-4 py-2 border-b text-center space-x-2">

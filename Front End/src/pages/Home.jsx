@@ -6,11 +6,11 @@ import Footer from "../components/Footer/Footer";
 const Home = () => {
   return (
     <>
-      <div>
-        <Hero/>
-        <Target/>
-        <Panduan/>
-        <Footer/>
+      <div className="overflow-hidden">
+        <Hero />
+        <Target />
+        <Panduan />
+        <Footer />
       </div>
     </>
   );
