@@ -58,6 +58,7 @@ const IsiArtikel = () => {
               <a
                 className="hover:underline hover:text-green-600"
                 href={artikel.sumber_artikel}
+                target="_blank"
               >
                 {artikel.sumber_artikel}
               </a>
