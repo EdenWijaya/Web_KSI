@@ -74,11 +74,7 @@ const Navbar = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle Menu"
           >
-            {isMenuOpen ? (
-              <IoMdClose className="text-4xl" />
-            ) : (
-              <IoMdMenu className="text-4xl" />
-            )}
+            <IoMdMenu className="text-4xl" />
           </button>
         </div>
       </motion.div>
@@ -88,7 +84,7 @@ const Navbar = () => {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="absolute top-0 left-0 w-full bg-white shadow-lg z-10 lg:hidden"
+          className="absolute top-0 left-0 w-full bg-white shadow-lg z-10 lg:hidden flex flex-col items-right"
         >
           <ul className="flex flex-col items-start p-6 space-y-4 text-xl">
             {NavbarMenu.map((menu) => (
