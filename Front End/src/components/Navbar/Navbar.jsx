@@ -1,5 +1,5 @@
-import React from "react";
-import { IoMdMenu } from "react-icons/io";
+import React, { useState } from "react";
+import { IoMdMenu, IoMdClose } from "react-icons/io";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { isTokenValid } from "../../services/adminAuth/tokenValidation.service";
@@ -10,13 +10,11 @@ const NavbarMenu = [
     title: "Home",
     path: "/",
   },
-
   {
     id: 2,
     title: "Artikel",
     path: "/artikel",
   },
-
   {
     id: 3,
     title: "Lapor",
@@ -25,6 +23,8 @@ const NavbarMenu = [
 ];
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State untuk menu hamburger
+
   return (
     <nav className="relative z-20">
       <motion.div
@@ -35,7 +35,6 @@ const Navbar = () => {
         {/* Logo Section */}
         <div>
           <h1 className="font-bold text-4xl">
-            {" "}
             <span className="text-secondary2">Eco</span> Banjar
           </h1>
         </div>
@@ -71,9 +70,60 @@ const Navbar = () => {
 
         {/* Mobile Hamburger Menu Section */}
         <div className="lg:hidden">
-          <IoMdMenu className="text-4xl" />
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle Menu"
+          >
+            {isMenuOpen ? (
+              <IoMdClose className="text-4xl" />
+            ) : (
+              <IoMdMenu className="text-4xl" />
+            )}
+          </button>
         </div>
       </motion.div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="absolute top-0 left-0 w-full bg-white shadow-lg z-10 lg:hidden"
+        >
+          <ul className="flex flex-col items-start p-6 space-y-4 text-xl">
+            {NavbarMenu.map((menu) => (
+              <li key={menu.id}>
+                <Link
+                  to={menu.path}
+                  onClick={() => setIsMenuOpen(false)} // Menutup menu saat link diklik
+                  className="block w-full py-2 px-4 hover:bg-secondary2 hover:text-white rounded"
+                >
+                  {menu.title}
+                </Link>
+              </li>
+            ))}
+
+            {!isTokenValid() && (
+              <li>
+                <Link to="/Login" onClick={() => setIsMenuOpen(false)}>
+                  <button className="primary-btn w-full">Login</button>
+                </Link>
+              </li>
+            )}
+
+            {isTokenValid() && (
+              <li>
+                <Link
+                  to="/admin-dashboard"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <button className="primary-btn w-full">Dashboard</button>
+                </Link>
+              </li>
+            )}
+          </ul>
+        </motion.div>
+      )}
     </nav>
   );
 };
