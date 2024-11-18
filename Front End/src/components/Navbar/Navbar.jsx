@@ -122,6 +122,13 @@ const Navbar = () => {
               </li>
             )}
           </ul>
+
+          {/* close button */}
+          <button onClick={() => setIsMenuOpen(false)}
+          className="absolute top-6 right-6 text-black px-4 py-2"
+            >
+          <IoMdClose className="text-4xl" />
+          </button>
         </motion.div>
       )}
     </nav>
