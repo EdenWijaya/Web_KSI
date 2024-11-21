@@ -105,3 +105,23 @@ export const showGambarLaporan = (path) => {
   }`;
   return gambarUrl;
 };
+
+export const getTotalLaporan = async (callback) => {
+  try {
+    const res = await axios.get(`${serverUrl}laporan-lingkungan/laporan/total`);
+    callback(res.data);
+  } catch (error) {
+    console.log(`${error.response.data.message}`);
+  }
+};
+
+export const getLaporanSelesai = async (callback) => {
+  try {
+    const res = await axios.get(
+      `${serverUrl}laporan-lingkungan/laporan/total/selesai`
+    );
+    callback(res.data);
+  } catch (error) {
+    console.log(`${error.response.data.message}`);
+  }
+};

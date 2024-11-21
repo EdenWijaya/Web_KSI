@@ -10,6 +10,8 @@ import {
   updateStatus,
 } from "../controller/laporanForm.js";
 
+import { totalLaporan, totalLaporanSelesai } from "../controller/getCount.js";
+
 const laporanRouter = express.Router();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,5 +24,8 @@ laporanRouter.delete("/:id", accesValidation, deleteLaporanForm);
 laporanRouter.put("/:id", accesValidation, updateStatus);
 
 laporanRouter.use("/gambar/laporan", express.static(path.join(imagesPath)));
+
+laporanRouter.get("/laporan/total", totalLaporan);
+laporanRouter.get("/laporan/total/selesai", totalLaporanSelesai);
 
 export default laporanRouter;

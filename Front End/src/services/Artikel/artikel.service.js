@@ -140,3 +140,12 @@ export const showGambar = (path) => {
   }`;
   return gambarUrl;
 };
+
+export const getTotalArtikel = async (callback) => {
+  try {
+    const res = await axios.get(`${serverUrl}artikel-lingkungan/artikel/total`);
+    callback(res.data);
+  } catch (error) {
+    console.log(`${error.response.data.message}`);
+  }
+};

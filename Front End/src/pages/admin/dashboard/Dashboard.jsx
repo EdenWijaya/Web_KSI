@@ -1,8 +1,66 @@
-import React from "react";
-import { FaChartLine, FaFileAlt, FaUsers, FaClipboardCheck } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import {
+  FaChartLine,
+  FaFileAlt,
+  FaUsers,
+  FaClipboardCheck,
+} from "react-icons/fa";
 import Chart from "./Chart";
 
+import { getTotalArtikel } from "../../../services/Artikel/artikel.service";
+import {
+  getTotalLaporan,
+  getLaporanSelesai,
+} from "../../../services/Laporan/laporan.service";
+
+import { totalWebVisitor } from "../../../services/Visitor/visitor.service";
+
 const AdminDashboard = () => {
+  const [totalArtikel, setTotalArtikel] = useState([]);
+  const [totalLaporan, setTotalLaporan] = useState([]);
+  const [laporanSelesai, setLaporanSelesai] = useState([]);
+  const [totalVisitor, setTotalVisitor] = useState([]);
+
+  useEffect(() => {
+    getTotalArtikel((data) => {
+      if (Array.isArray(data.data)) {
+        setTotalArtikel(data.data);
+      } else {
+        setTotalArtikel([{ total_artikel: 0 }]);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    getTotalLaporan((data) => {
+      if (Array.isArray(data.data)) {
+        setTotalLaporan(data.data);
+      } else {
+        setTotalLaporan([{ total_laporan: 0 }]);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    getLaporanSelesai((data) => {
+      if (Array.isArray(data.data)) {
+        setLaporanSelesai(data.data);
+      } else {
+        setLaporanSelesai([{ total_selesai: 0 }]);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    totalWebVisitor((data) => {
+      if (Array.isArray(data.data)) {
+        setTotalVisitor(data.data);
+      } else {
+        setTotalVisitor([{ total_visitor: 0 }]);
+      }
+    });
+  }, []);
+
   return (
     <div className="flex bg-white">
       <div className="flex-1 md:px-0 py-4 bg-gray-100">
@@ -13,7 +71,9 @@ const AdminDashboard = () => {
             <h2 className="text-lg md:text-xl font-normal text-center">
               Jumlah Artikel
             </h2>
-            <p className="text-3xl md:text-4xl font-bold text-green-800 mt-4">17</p>
+            <p className="text-3xl md:text-4xl font-bold text-green-800 mt-4">
+              {totalArtikel[0]?.total_artikel || "Loading..."}
+            </p>
           </div>
           {/* Jumlah Pengunjung */}
           <div className="bg-gradient-to-b from-white to-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center justify-between w-full">
@@ -21,7 +81,9 @@ const AdminDashboard = () => {
             <h2 className="text-lg md:text-xl font-normal text-center">
               Jumlah Pengunjung
             </h2>
-            <p className="text-3xl md:text-4xl font-bold text-green-800 mt-4">59</p>
+            <p className="text-3xl md:text-4xl font-bold text-green-800 mt-4">
+              {totalVisitor[0]?.total_visitor || "Loading..."}
+            </p>
           </div>
           {/* Jumlah Laporan Masuk */}
           <div className="bg-gradient-to-b from-white to-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center justify-between w-full">
@@ -29,7 +91,9 @@ const AdminDashboard = () => {
             <h2 className="text-lg md:text-xl font-normal text-center">
               Jumlah Laporan Masuk
             </h2>
-            <p className="text-3xl md:text-4xl font-bold text-green-800 mt-4">4</p>
+            <p className="text-3xl md:text-4xl font-bold text-green-800 mt-4">
+              {totalLaporan[0]?.total_laporan || "Loading..."}
+            </p>
           </div>
           {/* Jumlah Laporan Tuntas */}
           <div className="bg-gradient-to-b from-white to-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center justify-between w-full">
@@ -37,7 +101,9 @@ const AdminDashboard = () => {
             <h2 className="text-lg md:text-xl font-normal text-center">
               Jumlah Laporan Tuntas
             </h2>
-            <p className="text-3xl md:text-4xl font-bold text-green-800 mt-4">3</p>
+            <p className="text-3xl md:text-4xl font-bold text-green-800 mt-4">
+              {laporanSelesai[0]?.total_laporan_selesai || "Loading..."}
+            </p>
           </div>
         </div>
 
