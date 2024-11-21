@@ -31,7 +31,7 @@ const Hero = () => {
       <Navbar />
       <div className="container grid grid-cols-1 md:grid-cols-2 min-h-[650px]">
         {/* Header */}
-        <div className="flex flex-col justify-center py-14 md:py-0 relative z-20">
+        <div className="flex flex-col justify-center pb-14 pt-40 md:py-0 relative z-20">
           <div className="text-center md:text-left space-y-10 lg:mas-w-[400px]">
             <motion.h1
               variants={FadeUp(0.6)}
