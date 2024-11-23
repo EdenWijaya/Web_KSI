@@ -31,7 +31,7 @@ const sections = [
     title: "Kampanye Kesadaran Kesehatan",
     content:
       "Mengadakan kampanye edukasi kesadaran kesehatan agar setiap warga desa mengerti bagaimana cara menjaga tubuh dan lingkungannya agar tetap sehat.",
-    image: "assets/11.png",
+    image: "assets/",
     delay: 0.8,
   },
   {
@@ -80,22 +80,27 @@ const Panduan = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 md:px-16">
           {sections.map((section) => (
             <motion.div
-              key={section.id}
-              variants={SlideUp(section.delay)}
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              className="rounded-lg shadow-md p-6"
-            >
+            key={section.id}
+            variants={SlideUp(section.delay)}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="rounded-lg shadow-md overflow-hidden bg-white"
+          >
+            <div className="h-72 w-full overflow-hidden">
               <img
                 src={section.image}
-                className="rounded-xl h-72 w-full object-cover "
+                className="h-full w-full object-cover"
               />
+            </div>
+            <div className="p-6">
               <h3 className="text-lg font-semibold text-center mt-4">
                 {section.title}
               </h3>
               <p className="mt-2">{section.content}</p>
-            </motion.div>
+            </div>
+          </motion.div>
+          
           ))}
         </div>
       </div>
