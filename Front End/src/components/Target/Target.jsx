@@ -85,7 +85,7 @@ const Target = () => {
               <h1 className="text-2xl font-semibold text-center px-3">
                 {target.title}
               </h1>
-              <p className="text-sm text-center px-3">{target.content}</p>
+              <p className="text-base text-center px-4">{target.content}</p>
             </motion.div>
           ))}
         </div>
