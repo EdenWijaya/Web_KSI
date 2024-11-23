@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "Back End Modules",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "node src/index.js"
   },
   "author": "Kelompok 3 KSI",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.25.9",
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
     "nodemon": "^3.1.7"
   },
   "dependencies": {

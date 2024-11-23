@@ -72,7 +72,7 @@ const AdminDashboard = () => {
               Jumlah Artikel
             </h2>
             <p className="text-3xl md:text-4xl font-bold text-green-800 mt-4">
-              {totalArtikel[0]?.total_artikel || "Loading..."}
+              {totalArtikel[0]?.total_artikel || 0}
             </p>
           </div>
           {/* Jumlah Pengunjung */}
@@ -82,7 +82,7 @@ const AdminDashboard = () => {
               Jumlah Pengunjung
             </h2>
             <p className="text-3xl md:text-4xl font-bold text-green-800 mt-4">
-              {totalVisitor[0]?.total_visitor || "Loading..."}
+              {totalVisitor[0]?.total_visitor || 0}
             </p>
           </div>
           {/* Jumlah Laporan Masuk */}
@@ -92,7 +92,7 @@ const AdminDashboard = () => {
               Jumlah Laporan Masuk
             </h2>
             <p className="text-3xl md:text-4xl font-bold text-green-800 mt-4">
-              {totalLaporan[0]?.total_laporan || "Loading..."}
+              {totalLaporan[0]?.total_laporan || 0}
             </p>
           </div>
           {/* Jumlah Laporan Tuntas */}
@@ -102,7 +102,7 @@ const AdminDashboard = () => {
               Jumlah Laporan Tuntas
             </h2>
             <p className="text-3xl md:text-4xl font-bold text-green-800 mt-4">
-              {laporanSelesai[0]?.total_laporan_selesai || "Loading..."}
+              {laporanSelesai[0]?.total_laporan_selesai || 0}
             </p>
           </div>
         </div>

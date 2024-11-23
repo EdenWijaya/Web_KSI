@@ -1,11 +1,11 @@
 import express from "express";
 import "dotenv/config";
 import cors from "cors";
-import laporanRouter from "./routes/laporan.js";
-import artikelRouter from "./routes/artikel.js";
-import adminRouter from "./routes/admin.js";
-import visitorRouter from "./routes/visitor.js";
-import { uploadHandler } from "./middleware/file_upload/fileHandler.js";
+import laporanRouter from "./routes/laporan.cjs";
+import artikelRouter from "./routes/artikel.cjs";
+import adminRouter from "./routes/admin.cjs";
+import visitorRouter from "./routes/visitor.cjs";
+import { uploadHandler } from "./middleware/file_upload/fileHandler.cjs";
 
 const PORT = process.env.PORT || 3000;
 const app = express();

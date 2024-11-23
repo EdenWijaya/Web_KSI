@@ -7,7 +7,7 @@ const TargetData = [
     title: "Pelestarian Lingkungan",
     content:
       "memastikan konservasi, pemulihan dan pemanfaatan berkelanjutan ekosistem air tawar darat dan pedalaman serta layanannya, khususnya hutan, lahan basah, pegunungan dan lahan kering",
-    image: "src/assets/11.png",
+    image: "assets/11.png",
     delay: 0.2,
   },
 
@@ -16,7 +16,7 @@ const TargetData = [
     title: "Akhiri Deforestasi",
     content:
       "menghentikan penggundulan hutan, memulihkan hutan yang terdegradasi, dan secara substansial meningkatkan penghijauan dan reboisasi di seluruh dunia.",
-    image: "src/assets/11.png",
+    image: "assets/11.png",
     delay: 0.4,
   },
 
@@ -25,7 +25,7 @@ const TargetData = [
     title: "Integrasi dengan kebijakan",
     content:
       "Mengintegrasikan nilai-nilai ekosistem dan keanekaragaman hayati ke dalam perencanaan nasional dan lokal.",
-    image: "src/assets/11.png",
+    image: "assets/11.png",
     delay: 0.6,
   },
 ];

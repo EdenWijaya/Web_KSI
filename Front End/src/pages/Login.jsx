@@ -7,7 +7,7 @@ const Login = () => {
   return (
     <div
       className="h-screen flex items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: "url(src/assets/background-img-2.jpg)" }}
+      style={{ backgroundImage: "url(assets/background-img-2.jpg)" }}
     >
       <style>
         {`
@@ -25,7 +25,7 @@ const Login = () => {
       <Link to="/">
         <div className="absolute top-3 left-3 w-7 h-7  bg-opacity-1 cursor-pointer">
           <img
-            src="src/assets/back_icon.png"
+            src="assets/back_icon.png"
             alt="Back"
             className="w-full h-full"
           />
@@ -36,7 +36,7 @@ const Login = () => {
         {/* Left section */}
         <div className="hidden md:flex w-full md:w-[54%] h-[575px] relative">
           <video
-            src="src/assets/login_video2.mp4"
+            src="assets/login_video2.mp4"
             className="absolute w-full h-full object-cover"
             autoPlay
             loop
