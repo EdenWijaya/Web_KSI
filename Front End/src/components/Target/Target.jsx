@@ -6,7 +6,7 @@ const TargetData = [
     id: 1,
     title: "Pelestarian Lingkungan",
     content:
-      "memastikan konservasi, pemulihan dan pemanfaatan berkelanjutan ekosistem air tawar darat dan pedalaman serta layanannya, khususnya hutan, lahan basah, pegunungan dan lahan kering",
+      "memastikan konservasi, pemulihan dan pemanfaatan berkelanjutan ekosistem darat dan pedalaman serta layanannya, khususnya hutan, lahan basah, pegunungan dan lahan kering",
     image: "assets/11.png",
     delay: 0.2,
   },
@@ -16,16 +16,16 @@ const TargetData = [
     title: "Akhiri Deforestasi",
     content:
       "menghentikan penggundulan hutan, memulihkan hutan yang terdegradasi, dan secara substansial meningkatkan penghijauan dan reboisasi di seluruh dunia.",
-    image: "assets/11.png",
+    image: "assets/Akhiri_Deforestasi.jpg",
     delay: 0.4,
   },
 
   {
     id: 3,
-    title: "Integrasi dengan kebijakan",
+    title: "Integrasi kebijakan",
     content:
       "Mengintegrasikan nilai-nilai ekosistem dan keanekaragaman hayati ke dalam perencanaan nasional dan lokal.",
-    image: "assets/11.png",
+    image: "assets/integrasi_nilai.jpg",
     delay: 0.6,
   },
 ];
@@ -78,9 +78,10 @@ const Target = () => {
               whileInView={"animate"}
               className=" rounded-3xl flex flex-col gap-4 item-center justify-center p-10 py-7 hover:scale-110 duration-300 hover:shadow-xl"
             >
-              <div className="">
-                <img src={target.image} />
+              <div className="w-full h-[220px] flex items-center justify-center">
+                <img src={target.image} className="h-full object-contain" />
               </div>
+
               <h1 className="text-2xl font-semibold text-center px-3">
                 {target.title}
               </h1>
