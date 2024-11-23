@@ -35,7 +35,7 @@ const Footer = () => {
             variants={SlideUp()}
             className="grid grid-cols-2 gap-10"
             initial="initial"
-            whileInView={"animate"}
+            animate="animate"
           >
             <div className="space-y-4 sm:col-span-2">
               <h1 className="text-2xl font-bold">
@@ -71,7 +71,7 @@ const Footer = () => {
             className="grid grid-cols-1 gap-10"
             variants={SlideUp(0.2)}
             initial="initial"
-            whileInView={"animate"}
+            animate="animate"
           >
             <div className="space-y-4">
               <h1 className="text-2xl font-bold">Other Website</h1>
@@ -91,7 +91,7 @@ const Footer = () => {
             className="grid grid-cols-1 gap-10"
             variants={SlideUp(0.3)}
             initial="initial"
-            whileInView={"animate"}
+            animate="animate"
           >
             <div className="space-y-4">
               <h1 className="text-2xl font-bold">Our Social Media</h1>
@@ -130,7 +130,7 @@ const Footer = () => {
         className="mt-10 py-4 bg-light font-semibold text-center"
         variants={SlideUp(0.4)}
         initial="initial"
-        whileInView={"animate"}
+        animate="animate"
       >
         <p>&copy; Copyright 2024 Desa Banjar Agung</p>
       </motion.div>

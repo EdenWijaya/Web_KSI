@@ -23,7 +23,7 @@ const sections = [
     title: "Kegiatan Kerja Bakti",
     content:
       "Menjaga kebersihan lingkungan bisa dilakukan dengan rutin melalui kegiatan kerja bakti atau gotong royong. Hal ini bertujuan untuk menjaga lingkungan agar tetap bersih dan mempererat hubungan antar warga. Sehingga bisa mewujudkan kebersihan lingkungan bersama. Kerja bakti atau gotong royong bisa dilakukan sekali dalam seminggu.",
-    image: "assets/11.png",
+    image: "assets/kerja_bakti.jpg",
     delay: 0.6,
   },
   {
@@ -39,8 +39,16 @@ const sections = [
     title: "Penghijauan Lingkungan",
     content:
       "Memperbanyak tanaman hijau di sekitar agar suasana lebih asri dan rindang. Tanaman hijau dapat melepaskan oksigen dan menyerap karbon dioksida. Inilah salah satu alasan bahwa tanaman hijau bisa membuat kualitas udara jadi lebih baik.",
-    image: "assets/11.png",
+    image: "assets/penghijauan_lingkungan.jpg",
     delay: 1.0,
+  },
+
+  {
+    id: 6,
+    title : "lorem ipsum",
+    content: "lorem ipsum",
+    image: "assets/11.png",
+    delay: 1.2,
   },
 ];
 

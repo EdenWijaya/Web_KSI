@@ -25,7 +25,7 @@ const Login = () => {
       <Link to="/">
         <div className="absolute top-3 left-3 w-7 h-7  bg-opacity-1 cursor-pointer">
           <img
-            src="assets/back_icon.png"
+            src="assets/back-button.png"
             alt="Back"
             className="w-full h-full"
           />
