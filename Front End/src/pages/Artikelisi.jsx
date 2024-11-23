@@ -23,50 +23,52 @@ const IsiArtikel = () => {
 
   const artikel = artikelData.data[0];
 
-  console.log(artikel);
-
   return (
     <>
       <div>
         <Navbar variant="bg-green-800" variant2="mt-0 py-1" />
-        <div>
-          <h1 className="text-4xl font-bold text-center p-7 ">
+        <div className="px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl font-bold text-center mt-8 mb-6">
             {artikel.judul_artikel}
           </h1>
 
-          <div className="px-7">
-            <div className="flex items-center justify-center object-cover rounded-xl">
+          <div className="mb-8">
+            <div className="flex items-center justify-center">
               <img
-                className="w-[50%] flex items-center justify-center object-cover rounded-xl"
+                className="w-full max-w-md sm:max-w-lg md:max-w-xl object-cover rounded-xl shadow-md"
                 src={showGambar(artikel.gambar_artikel)}
                 alt={artikel.judul_artikel}
               />
             </div>
           </div>
-          <div className="p-7">
+
+          <div className="text-justify leading-relaxed space-y-6">
             <p
-              className="px-20 text-justify"
+              className="text-base sm:text-lg"
               style={{ whiteSpace: "pre-wrap" }}
             >
               {artikel.isi_artikel}
             </p>
-            <h2 className="text-base  px-20 font-medium mt-11 text-center">
-              Penulis Artikel : {artikel.author}
-            </h2>
-            <h2 className="text-base  px-20 font-medium  text-center">
-              Sumber Artikel :{" "}
-              <a
-                className="hover:underline hover:text-green-600"
-                href={artikel.sumber_artikel}
-                target="_blank"
-              >
-                {artikel.sumber_artikel}
-              </a>
-            </h2>
+            <div className="text-center mt-8">
+              <h2 className="text-sm sm:text-base font-medium">
+                Penulis Artikel: {artikel.author}
+              </h2>
+              <h2 className="text-sm sm:text-base font-medium">
+                Sumber Artikel:{" "}
+                <a
+                  className="hover:underline hover:text-green-600"
+                  href={artikel.sumber_artikel}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {artikel.sumber_artikel}
+                </a>
+              </h2>
+            </div>
           </div>
         </div>
       </div>
-      <Footer></Footer>
+      <Footer />
     </>
   );
 };
