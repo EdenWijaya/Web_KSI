@@ -98,7 +98,7 @@ const Footer = () => {
               <div>
                 <ul>
                   <a
-                    href="https://facebook.com"
+                    href="https://www.facebook.com/p/Desa-Banjar-Agung-100077323150206/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
