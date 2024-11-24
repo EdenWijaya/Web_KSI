@@ -11,8 +11,8 @@ const TambahArtikel = () => {
   };
 
   return (
-    <div className="bg-light min-h-screen flex flex-col items-center py-10">
-      <div className="w-10/12 max-w-3xl p-7 bg-white border rounded-2xl shadow-lg">
+    <div className="mt-5">
+      <div className="w-full p-7 bg-white border rounded-2xl shadow-lg">
         <h2 className="text-3xl font-bold text-center mb-6">
           Tambah Artikel Baru
         </h2>

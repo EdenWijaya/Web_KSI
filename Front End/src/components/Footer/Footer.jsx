@@ -25,9 +25,9 @@ const SlideUp = (delay) => ({
 
 const Footer = () => {
   return (
-    <footer className="mt-24">
-      <div className="container mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="flex flex-col lg:flex-row lg:justify-between gap-8">
+    <footer className="mt-16">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 flex lg:items-center lg:justify-center"> 
+        <div className="flex flex-col sm:flex-col lg:flex-row lg:justify-between gap-10 lg:gap-36">
           {/* first section */}
           <motion.div
             variants={SlideUp()}
@@ -38,7 +38,7 @@ const Footer = () => {
             <h1 className="text-xl sm:text-2xl font-bold">
               <span className="text-secondary2">Eco</span>Banjar
             </h1>
-            <ul>
+            <ul >
               <a
                 href="https://g.co/kgs/WsXN5GK"
                 target="_blank"
@@ -51,15 +51,14 @@ const Footer = () => {
               </a>
               <li className="flex items-center space-x-2 pt-4">
                 <CiMail className="text-lg sm:text-2xl text-secondary2 mr-2" />{" "}
-                iniemail@gmail.com
+                ecobanjar@gmail.com
               </li>
               <li className="flex items-center space-x-2 pt-5">
                 <FaPhone className="text-lg sm:text-2xl text-secondary2 mr-2" />{" "}
-                081234567890
+                0853-7775-4075
               </li>
             </ul>
           </motion.div>
-
           {/* second section */}
           <motion.div
             className="flex-1 space-y-6"
@@ -75,7 +74,6 @@ const Footer = () => {
               </li>
             </ul>
           </motion.div>
-
           {/* third section */}
           <motion.div
             className="flex-1 space-y-6"

@@ -46,7 +46,7 @@ const Layout = () => {
             </button>
             {windowWidth >= 768 && (
               <div className="flex items-center">
-                <span className="ml-0 mr-7 text-lg">ADMIN</span>
+                <span className="ml-0 mr-7 text-4xl font-bold md:text-lg">ADMIN</span>
               </div>
             )}
           </div>

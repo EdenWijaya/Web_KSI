@@ -41,20 +41,13 @@ const IsiArtikel = () => {
               />
             </div>
           </div>
-
-          <div className="text-justify leading-relaxed space-y-6">
-            <p
-              className="text-base sm:text-lg"
-              style={{ whiteSpace: "pre-wrap" }}
-            >
-              {artikel.isi_artikel}
-            </p>
-            <div className="text-center mt-8">
+          <div className="mt-8">
+          <hr className="border-t-2 border-gray-300 my-3" />
               <h2 className="text-sm sm:text-base font-medium">
-                Penulis Artikel: {artikel.author}
+                Penulis Artikel : {artikel.author}
               </h2>
-              <h2 className="text-sm sm:text-base font-medium">
-                Sumber Artikel:{" "}
+              <h2 className="text-sm sm:text-base font-medium my-3">
+                Sumber Artikel :{" "}
                 <a
                   className="hover:underline hover:text-green-600"
                   href={artikel.sumber_artikel}
@@ -64,10 +57,20 @@ const IsiArtikel = () => {
                   {artikel.sumber_artikel}
                 </a>
               </h2>
+              <hr className="border-t-2 border-gray-300 my-2" />
             </div>
+
+          <div className="text-justify leading-relaxed space-y-6">
+            <p
+              className="text-base sm:text-lg"
+              style={{ whiteSpace: "pre-wrap" }}
+            >
+              {artikel.isi_artikel}
+            </p>
           </div>
         </div>
       </div>
+      <hr className="border-t-2 border-gray-300 mt-16" />
       <Footer />
     </>
   );
