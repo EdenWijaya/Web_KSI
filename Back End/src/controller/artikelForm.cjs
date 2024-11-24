@@ -78,6 +78,7 @@ const createArtikelForm = async (req, res, next) => {
     res.status(500).json({
       message: "Artikel gagal ditambahkan",
     });
+    console.log(error);
   }
 };
 

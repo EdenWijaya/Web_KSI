@@ -35,7 +35,7 @@ const Layout = () => {
           </button>
           <div className="flex items-center space-x-4">
             <div
-              className={`text-xl font-bold ${windowWidth < 768 ? "ml-11" : ""}`}
+              className={`text-xl font-bold ${windowWidth < 768 ? "ml-5" : ""}`}
             >
               <span className="text-secondary2">Eco</span>Banjar
             </div>
