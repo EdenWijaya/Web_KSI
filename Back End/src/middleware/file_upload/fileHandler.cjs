@@ -1,4 +1,4 @@
-import multer from "multer";
+const multer = require("multer");
 
 const storageImage = multer.diskStorage({
   destination: (req, file, callback) => {
@@ -17,7 +17,7 @@ const storageImage = multer.diskStorage({
   },
 });
 
-export const fileFilter = (req, file, callback) => {
+const fileFilter = (req, file, callback) => {
   if (
     file.mimetype === "image/jpeg" ||
     file.mimetype === "image/png" ||
@@ -34,10 +34,15 @@ export const fileFilter = (req, file, callback) => {
   }
 };
 
-export const uploadHandler = multer({
+const uploadHandler = multer({
   storage: storageImage,
   fileFilter: fileFilter,
 }).fields([
   { name: "gambar_laporan", maxCount: 1 },
   { name: "gambar_artikel", maxCount: 1 },
 ]);
+
+module.exports = {
+  fileFilter,
+  uploadHandler,
+};

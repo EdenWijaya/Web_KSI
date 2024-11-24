@@ -1,6 +1,6 @@
-import { dbPool } from "../config/database.cjs";
+const dbPool = require("../config/database.cjs");
 
-export const getArtikel = () => {
+const getArtikel = () => {
   const query = "SELECT * FROM artikel_lingkungan";
 
   try {
@@ -10,7 +10,7 @@ export const getArtikel = () => {
   }
 };
 
-export const getArtikelById = (id) => {
+const getArtikelById = (id) => {
   const query = "SELECT * FROM artikel_lingkungan WHERE id_artikel = ?";
   const values = [id];
 
@@ -21,9 +21,9 @@ export const getArtikelById = (id) => {
   }
 };
 
-export const addArtikel = (body, gambar_artikel) => {
+const addArtikel = (body, gambar_artikel) => {
   const sumber_artikel = body.sumber_artikel || "Unknown";
-  const query = `INSERT INTO artikel_lingkungan (tanggal_artikel, judul_artikel,author, gambar_artikel, isi_artikel,sumber_artikel) VALUES (?, ?, ?, ?, ?,?)`;
+  const query = `INSERT INTO artikel_lingkungan (tanggal_artikel, judul_artikel, author, gambar_artikel, isi_artikel, sumber_artikel) VALUES (?, ?, ?, ?, ?, ?)`;
   const values = [
     body.tanggal_artikel,
     body.judul_artikel,
@@ -40,7 +40,7 @@ export const addArtikel = (body, gambar_artikel) => {
   }
 };
 
-export const updateArtikel = (body, id, gambar) => {
+const updateArtikel = (body, id, gambar) => {
   const { judul_artikel, author, isi_artikel, sumber_artikel } = body;
 
   const title = judul_artikel || null;
@@ -60,7 +60,7 @@ export const updateArtikel = (body, id, gambar) => {
   }
 };
 
-export const deleteArtikel = (id) => {
+const deleteArtikel = (id) => {
   const query = "DELETE FROM artikel_lingkungan WHERE id_artikel = ?";
   const values = [id];
 
@@ -69,4 +69,12 @@ export const deleteArtikel = (id) => {
   } catch (error) {
     throw error;
   }
+};
+
+module.exports = {
+  getArtikel,
+  getArtikelById,
+  addArtikel,
+  updateArtikel,
+  deleteArtikel,
 };

@@ -1,8 +1,10 @@
-import bcrypt from "bcrypt";
-import { getAdmin, createAdmin } from "../../models/userAdminQuery.cjs";
-import "dotenv/config";
+const bcrypt = require("bcrypt");
+const { getAdmin, createAdmin } = require("../../models/userAdminQuery.cjs");
+require("dotenv").config();
 
-const hashPassword = async (password) => {
+const saltRounds = 10; 
+
+const hashPassword = async (password, username) => {
   try {
     const salt = await bcrypt.genSalt(saltRounds);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -13,11 +15,16 @@ const hashPassword = async (password) => {
   }
 };
 
-export const getAdminAccount = async (req, res) => {
+const getAdminAccount = async (req, res) => {
   try {
     const [data] = await getAdmin();
     return JSON.stringify(data);
   } catch (error) {
     throw error;
   }
+};
+
+module.exports = {
+  hashPassword,
+  getAdminAccount,
 };

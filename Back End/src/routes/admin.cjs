@@ -1,8 +1,8 @@
-import express from "express";
-import adminAuth from "../controller/admin/adminAuthentication.cjs";
+const express = require("express");
+const adminAuth = require("../controller/admin/adminAuthentication.cjs");
 
 const adminRouter = express.Router();
 
 adminRouter.post("/login", adminAuth);
 
-export default adminRouter;
+module.exports = adminRouter;

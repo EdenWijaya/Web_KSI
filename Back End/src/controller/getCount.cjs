@@ -1,10 +1,10 @@
-import {
+const {
   getCountArtikel,
   getCountLaporan,
   getCountLaporanSelesai,
-} from "../models/countQuery.cjs";
+} = require("../models/countQuery.cjs");
 
-export const totalArtikel = async (req, res) => {
+const totalArtikel = async (req, res) => {
   try {
     const countArtikel = await getCountArtikel();
 
@@ -19,7 +19,7 @@ export const totalArtikel = async (req, res) => {
   }
 };
 
-export const totalLaporan = async (req, res) => {
+const totalLaporan = async (req, res) => {
   try {
     const countLaporan = await getCountLaporan();
 
@@ -34,7 +34,7 @@ export const totalLaporan = async (req, res) => {
   }
 };
 
-export const totalLaporanSelesai = async (req, res) => {
+const totalLaporanSelesai = async (req, res) => {
   try {
     const countLaporanSelesai = await getCountLaporanSelesai();
 
@@ -47,4 +47,10 @@ export const totalLaporanSelesai = async (req, res) => {
       message: "Gagal mengambil total laporan selesai",
     });
   }
+};
+
+module.exports = {
+  totalArtikel,
+  totalLaporan,
+  totalLaporanSelesai,
 };

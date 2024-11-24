@@ -1,12 +1,12 @@
-import {
+const {
   getArtikel,
   getArtikelById,
   addArtikel,
   updateArtikel,
   deleteArtikel,
-} from "../models/artikelQuery.cjs";
+} = require("../models/artikelQuery.cjs");
 
-export const getArtikelForm = async (req, res) => {
+const getArtikelForm = async (req, res) => {
   try {
     const [data] = await getArtikel();
     if (data.length === 0) {
@@ -26,7 +26,7 @@ export const getArtikelForm = async (req, res) => {
   }
 };
 
-export const getArtikelFormById = async (req, res) => {
+const getArtikelFormById = async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -48,7 +48,7 @@ export const getArtikelFormById = async (req, res) => {
   }
 };
 
-export const createArtikelForm = async (req, res, next) => {
+const createArtikelForm = async (req, res, next) => {
   if (!req.files.gambar_artikel) {
     const error = new Error(" gambar harus diupload");
     error.errorStatus = 422;
@@ -81,7 +81,7 @@ export const createArtikelForm = async (req, res, next) => {
   }
 };
 
-export const updateArtikelForm = async (req, res) => {
+const updateArtikelForm = async (req, res) => {
   const { id } = req.params;
   const { body } = req;
   const gambar_artikel = req.files.gambar_artikel[0].path;
@@ -99,7 +99,7 @@ export const updateArtikelForm = async (req, res) => {
   }
 };
 
-export const deleteArtikelForm = async (req, res) => {
+const deleteArtikelForm = async (req, res) => {
   const { id } = req.params;
 
   if (!id) {
@@ -120,4 +120,12 @@ export const deleteArtikelForm = async (req, res) => {
       id: id,
     });
   }
+};
+
+module.exports = {
+  getArtikelForm,
+  getArtikelFormById,
+  createArtikelForm,
+  updateArtikelForm,
+  deleteArtikelForm,
 };

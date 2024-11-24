@@ -1,6 +1,6 @@
-import { dbPool } from "../config/database.cjs";
+const dbPool = require("../config/database.cjs");
 
-export const getCountArtikel = () => {
+const getCountArtikel = () => {
   const query = "SELECT COUNT(*) as total_artikel FROM artikel_lingkungan";
 
   try {
@@ -10,7 +10,7 @@ export const getCountArtikel = () => {
   }
 };
 
-export const getCountLaporan = () => {
+const getCountLaporan = () => {
   const query = "SELECT COUNT(*) as total_laporan FROM laporan_lingkungan";
 
   try {
@@ -20,7 +20,7 @@ export const getCountLaporan = () => {
   }
 };
 
-export const getCountLaporanSelesai = () => {
+const getCountLaporanSelesai = () => {
   const query =
     "SELECT COUNT(*) as total_laporan_selesai FROM laporan_lingkungan WHERE status = 'Selesai'";
   try {
@@ -28,4 +28,10 @@ export const getCountLaporanSelesai = () => {
   } catch (error) {
     throw error;
   }
+};
+
+module.exports = {
+  getCountArtikel,
+  getCountLaporan,
+  getCountLaporanSelesai,
 };

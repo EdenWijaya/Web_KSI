@@ -1,11 +1,11 @@
-import {
+const {
   getLaporan,
   addLaporan,
   deleteLaporan,
   updateStatusLaporan,
-} from "../models/laporanQuery.cjs";
+} = require("../models/laporanQuery.cjs");
 
-export const getLaporanForm = async (req, res) => {
+const getLaporanForm = async (req, res) => {
   try {
     const [data] = await getLaporan();
 
@@ -26,7 +26,7 @@ export const getLaporanForm = async (req, res) => {
   }
 };
 
-export const createLaporanForm = async (req, res, next) => {
+const createLaporanForm = async (req, res, next) => {
   const { body } = req;
   if (
     !body.tanggal_laporan ||
@@ -62,7 +62,7 @@ export const createLaporanForm = async (req, res, next) => {
   }
 };
 
-export const updateStatus = async (req, res) => {
+const updateStatus = async (req, res) => {
   const { id } = req.params;
   const { status } = req.body;
   if (!id) {
@@ -83,7 +83,7 @@ export const updateStatus = async (req, res) => {
   }
 };
 
-export const deleteLaporanForm = (req, res) => {
+const deleteLaporanForm = (req, res) => {
   const { id } = req.params;
 
   if (!id) {
@@ -105,4 +105,11 @@ export const deleteLaporanForm = (req, res) => {
       error: err,
     });
   }
+};
+
+module.exports = {
+  getLaporanForm,
+  createLaporanForm,
+  updateStatus,
+  deleteLaporanForm,
 };

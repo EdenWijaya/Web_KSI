@@ -1,7 +1,7 @@
-import bcrypt from "bcrypt";
-import { getAdminAccount } from "./adminAccount.cjs";
-import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
+const bcrypt = require("bcrypt");
+const { getAdminAccount } = require("./adminAccount.cjs");
+const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
 
 dotenv.config();
 
@@ -14,10 +14,10 @@ const adminAuth = async (req, res) => {
     });
   }
 
-  const data = await getAdminAccount();
-  const admin = JSON.parse(data);
-
   try {
+    const data = await getAdminAccount();
+    const admin = JSON.parse(data);
+
     const isPasswordValid = await bcrypt.compare(body.password, admin.password);
     const payload = {
       id: admin.id_user,
@@ -25,7 +25,7 @@ const adminAuth = async (req, res) => {
     };
 
     const secretKey = process.env.JWT_SECRET;
-    const expiresIn = 60 * 60 * 48;
+    const expiresIn = 60 * 60 * 48; // Token berlaku 48 jam
     const token = jwt.sign(payload, secretKey, { expiresIn: expiresIn });
 
     if (body.username === admin.username) {
@@ -50,9 +50,9 @@ const adminAuth = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({
-      message: "kegagalan dari server saat proses login",
+      message: "Kegagalan dari server saat proses login",
     });
   }
 };
 
-export default adminAuth;
+module.exports = adminAuth;

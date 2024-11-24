@@ -1,7 +1,7 @@
-import { dbPool } from "../config/database.cjs";
+const dbPool = require("../config/database.cjs");
 
-export const createAdmin = (username, password) => {
-  const query = `INSERT INTO user_admin (username, password,refresh_token) VALUES (?, ?,?)`;
+const createAdmin = (username, password) => {
+  const query = `INSERT INTO user_admin (username, password, refresh_token) VALUES (?, ?, ?)`;
   const values = [username, password, null];
 
   try {
@@ -11,7 +11,7 @@ export const createAdmin = (username, password) => {
   }
 };
 
-export const getAdmin = async () => {
+const getAdmin = async () => {
   const query = "SELECT * FROM user_admin";
 
   try {
@@ -20,4 +20,9 @@ export const getAdmin = async () => {
   } catch (error) {
     throw error;
   }
+};
+
+module.exports = {
+  createAdmin,
+  getAdmin,
 };

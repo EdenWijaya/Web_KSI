@@ -1,6 +1,6 @@
-import { setVisitor, getTotalVisitor } from "../models/visitor.cjs";
+const { setVisitor, getTotalVisitor } = require("../models/visitor.cjs");
 
-export const setNewVisitor = async (req, res) => {
+const setNewVisitor = async (req, res) => {
   try {
     await setVisitor("visited");
     res.status(200).json({ message: "Visitor updated successfully" });
@@ -10,7 +10,7 @@ export const setNewVisitor = async (req, res) => {
   }
 };
 
-export const totalVisitor = async (req, res) => {
+const totalVisitor = async (req, res) => {
   try {
     const total = await getTotalVisitor();
     res.status(200).json({ message: "Total visitor", data: total[0] });
@@ -18,4 +18,9 @@ export const totalVisitor = async (req, res) => {
     res.status(500).json({ message: "Failed to get total visitor" });
     console.error(error);
   }
+};
+
+module.exports = {
+  setNewVisitor,
+  totalVisitor,
 };

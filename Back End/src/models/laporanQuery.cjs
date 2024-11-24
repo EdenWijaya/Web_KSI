@@ -1,6 +1,6 @@
-import { dbPool } from "../config/database.cjs";
+const dbPool = require("../config/database.cjs");
 
-export const getLaporan = () => {
+const getLaporan = () => {
   const query = "SELECT * FROM laporan_lingkungan";
   try {
     return dbPool.query(query);
@@ -9,8 +9,8 @@ export const getLaporan = () => {
   }
 };
 
-export const addLaporan = (body, gambar_laporan) => {
-  const query = `INSERT INTO laporan_lingkungan (tanggal_laporan, nama, no_telepon, lokasi_laporan, deskripsi_laporan, gambar_laporan,status) VALUES (?, ?, ?, ?, ?, ?,?)`;
+const addLaporan = (body, gambar_laporan) => {
+  const query = `INSERT INTO laporan_lingkungan (tanggal_laporan, nama, no_telepon, lokasi_laporan, deskripsi_laporan, gambar_laporan, status) VALUES (?, ?, ?, ?, ?, ?, ?)`;
   const values = [
     body.tanggal_laporan,
     body.nama,
@@ -28,7 +28,7 @@ export const addLaporan = (body, gambar_laporan) => {
   }
 };
 
-export const deleteLaporan = (id) => {
+const deleteLaporan = (id) => {
   const query = "DELETE FROM laporan_lingkungan WHERE id_laporan = ?";
   const values = [id];
   try {
@@ -38,8 +38,8 @@ export const deleteLaporan = (id) => {
   }
 };
 
-export const createAdmin = (username, password) => {
-  const query = `INSERT INTO user_admin (username, password,refresh_token) VALUES (?, ?,?)`;
+const createAdmin = (username, password) => {
+  const query = `INSERT INTO user_admin (username, password, refresh_token) VALUES (?, ?, ?)`;
   const values = [username, password, null];
 
   try {
@@ -49,7 +49,7 @@ export const createAdmin = (username, password) => {
   }
 };
 
-export const updateStatusLaporan = (id, status) => {
+const updateStatusLaporan = (id, status) => {
   const query = "UPDATE laporan_lingkungan SET status = ? WHERE id_laporan = ?";
   const values = [status, id];
 
@@ -58,4 +58,12 @@ export const updateStatusLaporan = (id, status) => {
   } catch (err) {
     throw err;
   }
+};
+
+module.exports = {
+  getLaporan,
+  addLaporan,
+  deleteLaporan,
+  createAdmin,
+  updateStatusLaporan,
 };

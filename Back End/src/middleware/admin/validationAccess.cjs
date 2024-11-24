@@ -1,10 +1,11 @@
-import jwt from "jsonwebtoken";
-const accesValidation = (req, res, next) => {
+const jwt = require("jsonwebtoken");
+
+const accessValidation = (req, res, next) => {
   const { authorization } = req.headers;
 
   if (!authorization) {
     return res.status(401).json({
-      message: "Unauthorized : Diperlukan token",
+      message: "Unauthorized: Diperlukan token",
     });
   }
 
@@ -17,10 +18,10 @@ const accesValidation = (req, res, next) => {
   } catch (error) {
     console.error(error);
     return res.status(401).json({
-      message: "Unauthorized : Token tidak valid",
+      message: "Unauthorized: Token tidak valid",
     });
   }
   next();
 };
 
-export default accesValidation;
+module.exports = accessValidation;

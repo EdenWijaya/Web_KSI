@@ -1,6 +1,6 @@
-import { dbPool } from "../config/database.cjs";
+const dbPool = require("../config/database.cjs");
 
-export const setVisitor = (count) => {
+const setVisitor = (count) => {
   const query = "INSERT INTO web_visitor(visitor) VALUES (?)";
   const values = [count];
 
@@ -11,7 +11,7 @@ export const setVisitor = (count) => {
   }
 };
 
-export const getTotalVisitor = () => {
+const getTotalVisitor = () => {
   const query = "SELECT COUNT(*) as total_visitor FROM web_visitor";
 
   try {
@@ -19,4 +19,9 @@ export const getTotalVisitor = () => {
   } catch (error) {
     throw error;
   }
+};
+
+module.exports = {
+  setVisitor,
+  getTotalVisitor,
 };
