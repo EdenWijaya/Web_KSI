@@ -1,5 +1,5 @@
 import Label from "./Label";
-import { TextArea, Input } from "./input";
+import { TextArea, Input } from "./Input";
 
 export const InputLabel = (props) => {
   const { label, name, type, placeholder, variant } = props;
